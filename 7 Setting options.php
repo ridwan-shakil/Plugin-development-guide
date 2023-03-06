@@ -80,3 +80,33 @@ function clbc_pqrc_country() {
 }
 
 add_action('admin_init', 'add_pqrc_dimenson');
+
+
+// =========================================================
+//     Checkbox
+// =========================================================
+function add_pqrc_dimenson() {
+
+    add_settings_field('pqrc_country', 'Select country', 'clbc_pqrc_country', 'general');
+    register_setting('general', 'pqrc_country'); // Don't senitize it 
+}
+
+
+// Select country 
+
+function clbc_pqrc_country() {
+    $option = get_option('pqrc_country');
+    $countries = [
+        'Bangladesh', 'india', 'Nepal', 'Vutan', 'Pakistan'
+    ];
+
+    foreach ($countries as $country) {
+        $selected = '';
+        if (is_array($option) && in_array($country, $option)) {
+            $selected = 'checked';
+        }
+        printf('<input type="checkbox" value="%s" name="pqrc_country[]" %s > %s <br>',  $country, $selected, $country);
+    }
+}
+
+add_action('admin_init', 'add_pqrc_dimenson');
