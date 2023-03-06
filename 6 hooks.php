@@ -1,10 +1,12 @@
-Hooks
-Action Hook:
+<?php
+//Hooks
+
+//Action Hook:
 do_action( $hook_name:string, $arg:mixed );     // do the action in this LOCATION 
 
 add_action( $hook_name:string, $callback:callable, $priority:integer, $accepted_args:integer );     // add your function in the location (given by do_action)
 
-Filter hook:
+//Filter hook:
 
 apply_filters( $hook_name:string, $value:mixed, $args:mixed );  //$value will be filterable 
 
