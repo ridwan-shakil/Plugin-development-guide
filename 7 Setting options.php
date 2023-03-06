@@ -32,8 +32,8 @@ function add_pqrc_dimenson() {
     add_settings_section('pqrc_section', 'Post to QrCode :', '', 'general',);
     add_settings_field('height', 'QrCode height', 'clbc_pqrc_dimension', 'general', 'pqrc_section', ['height']);
     add_settings_field('width', 'QrCode width', 'clbc_pqrc_dimension', 'general', 'pqrc_section', ['width']);
-    register_setting('general', 'height');
-    register_setting('general', 'width');
+    register_setting('general', 'height', array(' sanitize_callback' => 'esc_attr'));
+    register_setting('general', 'width', array(' sanitize_callback' => 'esc_attr'));
 }
 
 function clbc_pqrc_dimension($args) {
@@ -53,7 +53,7 @@ add_action('admin_init', 'add_pqrc_dimenson');
 function add_pqrc_dimenson() {
 
     add_settings_field('pqrc_country', 'Select country', 'clbc_pqrc_country', 'general');
-    register_setting('general', 'pqrc_country');
+    register_setting('general', 'pqrc_country', array(' sanitize_callback' => 'esc_attr'));
 }
 
 
