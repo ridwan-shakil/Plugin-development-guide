@@ -43,3 +43,40 @@ function clbc_pqrc_dimension($args) {
 }
 
 add_action('admin_init', 'add_pqrc_dimenson');
+
+
+
+// ===============================================
+//  Adding selector in  setting options (general) page
+// ===============================================
+    
+function add_pqrc_dimenson() {
+
+    add_settings_field('pqrc_country', 'Select country', 'clbc_pqrc_country', 'general');
+    register_setting('general', 'pqrc_country');
+}
+
+
+// Select country 
+
+function clbc_pqrc_country() {
+    $option = get_option('pqrc_country');
+    $countries = [
+        'None', 'Bangladesh', 'india', 'Nepal', 'Vutan', 'Pakistan'
+    ];
+
+
+    echo '<select name="pqrc_country" id="pqrc_country">';
+
+    foreach ($countries as $country) {
+        $selected = '';
+        if ($option == $country) {
+            $selected = 'selected';
+        }
+        printf('<option value="%s" %s >%s</option>', $country, $selected, $country);
+    }
+
+    echo ' </select>';
+}
+
+add_action('admin_init', 'add_pqrc_dimenson');
