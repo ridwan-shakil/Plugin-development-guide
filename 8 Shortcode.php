@@ -39,8 +39,9 @@ function pqrc_btn_with_default($attr, $content) {
         'url' => '',
         'class' => 'btn-primary'
     ];
-    $new_attr = shortcode_atts($default, $attr);
+    $new_attr = shortcode_atts($default, $attr);    //will show default value if no value has been passed
     $content = $content ? $content : 'Click here';
+    $content = do_shortcode($content);   // it will allow nested shortcode
     return sprintf('<a href="%s" class="%s  btn ">%s</a>', $new_attr['url'], $new_attr['class'], $content);
 }
 add_shortcode('btn_with_default', 'pqrc_btn_with_default');
