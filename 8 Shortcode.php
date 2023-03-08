@@ -2,7 +2,9 @@
 
 add_shortcode() //to creat shortcode
 do_shortcode()  //to display shortcode
-
+// Never echo inside shortcode alloways return 
+    
+    
 // =====================================
 // Shortcode Type 1 
 // =====================================
