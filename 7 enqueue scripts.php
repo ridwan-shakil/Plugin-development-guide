@@ -7,7 +7,14 @@ wp_enqueue_scripts    // it's for adding css of js into frontend of website
 // adding scripts for admin panel 
 // ====================================
 function pqrc_enque_admin_scripts($screen) {
-    if ($screen == 'options-general.php') {
+    
+// for complex page url
+//     $current_screen = get_current_screen();
+//     if ('edit.php' == $screen && 'page' == $current_screen->post_type) {
+        // }
+
+    
+    if ('options-general.php' == $screen) {
         // css
         wp_enqueue_style('pqrc_minitoggle_css', plugin_dir_url(__FILE__) . "assets/css/minitoggle.css");
 
