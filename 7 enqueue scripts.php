@@ -36,3 +36,19 @@ function posts_qrcode_enque_style() {
 }
 
 add_action('wp_enqueue_scripts', 'posts_qrcode_enque_style');
+
+
+
+// ====================================
+// deregister and register again scripts
+// ====================================
+
+function clbc_asn_plugin_init(){
+    wp_deregister_style( 'name_of_stylesheet' );
+    wp_register_style( 'name_of_stylesheet', $src:string|false, $deps:array, $ver:string|boolean|null, $media:string );
+
+    wp_deregister_script( 'name_of_script' );
+    wp_register_script( 'name_of_script', $src:string|false, $deps:array, $ver:string|boolean|null, $in_footer:boolean );
+}
+
+add_action('init', 'clbc_asn_plugin_init');
