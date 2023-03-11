@@ -14,3 +14,23 @@
             'designation' => 'WordPress developer'
         ];
         wp_localize_script('pqrc_main_js', 'sitedata', $data);
+
+
+
+// ================================
+// Injecting css or js into a file 
+// ================================
+$data = <<<EOD
+      #div1{
+          background: red;
+          }
+EOD
+wp_add_inline_style('name where to inject' , $data );
+  
+  
+//   inject inline js 
+$data = <<<EOD
+      alert('hello from inline script');
+EOD
+
+ wp_add_inline_script('where to inject', $data );
