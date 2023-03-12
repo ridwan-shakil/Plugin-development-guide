@@ -1,0 +1,34 @@
+
+
+Codes referance :      https://codex.wordpress.org/Post_Thumbnails
+
+//====================================
+By default there is 4 image sizes: 
+//====================================
+the_post_thumbnail('thumbnail');       // Thumbnail (default 150px x 150px max)
+the_post_thumbnail('medium');          // Medium resolution (default 300px x 300px max)
+the_post_thumbnail('medium_large');    // Medium Large resolution (default 768px x 0px max)
+the_post_thumbnail('large');           // Large resolution (default 1024px x 1024px max)
+the_post_thumbnail('full');            // Original image resolution (unmodified)
+
+
+the_post_thumbnail( array(100,100) );  // Other resolutions
+
+
+//=============== NOTES ===============
+Themeforest supports highest 7 image sizes 
+Do not modify default sizes
+Default cropping style is ( center , center )
+With same dymenson (size) you can't define two img sixe
+
+//====================================
+
+
+====== Example sizes =======
+
+add_image_size( 'halim-square', 400, 400 ); 
+add_image_size( 'halim-portret', 400, 9999 );  //400 pixels wide (and unlimited height)
+add_image_size( 'halim-landscape', 9999 ,400);  // unlimited width and 400 pixels height 
+
+
+
