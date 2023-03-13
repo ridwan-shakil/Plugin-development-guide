@@ -1,4 +1,4 @@
-
+ =============================================== Theme Development part =======================================
 
 Codes referance :      https://codex.wordpress.org/Post_Thumbnails
 
@@ -19,16 +19,28 @@ the_post_thumbnail( array(100,100) );  // Other resolutions
 Themeforest supports highest 7 image sizes 
 Do not modify default sizes
 Default cropping style is ( center , center )
-With same dymenson (size) you can't define two img sixe
+With same dymenson (size) you can't define two img size
 
 //====================================
 
 
-====== Example sizes =======
+====== Introduce sizes =======
+add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array );
 
-add_image_size( 'halim-square', 400, 400 ); 
+add_image_size( 'halim-square', 400, 400 ,true);  //  'true' will hardcrop the image & 'empty value' will softcrop
+    add_image_size('stack-square', 500, 500, array('left', 'top'));   
+    
 add_image_size( 'halim-portret', 400, 9999 );  //400 pixels wide (and unlimited height)
 add_image_size( 'halim-landscape', 9999 ,400);  // unlimited width and 400 pixels height 
 
+============ Use sizes ==========
+the_post_thumbnail( 'halim-square' );
 
+
+================================
+What will happne to old images ?
+================================
+tell users to download 'Regenerate Thumbnails' plugin 
+'check' regenrate existing thumbnails
+'click' Regenrate thumbnails
 
