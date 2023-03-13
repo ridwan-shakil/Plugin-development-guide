@@ -11,7 +11,6 @@ the_post_thumbnail('medium_large');    // Medium Large resolution (default 768px
 the_post_thumbnail('large');           // Large resolution (default 1024px x 1024px max)
 the_post_thumbnail('full');            // Original image resolution (unmodified)
 
-
 the_post_thumbnail( array(100,100) );  // Other resolutions
 
 
@@ -22,16 +21,23 @@ Default cropping style is ( center , center )
 With same dymenson (size) you can't define two img size
 
 //====================================
-
-
-====== Introduce sizes =======
+// Introduce sizes 
+//====================================
 add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array );
 
 add_image_size( 'halim-square', 400, 400 ,true);  //  'true' will hardcrop the image & 'empty value' will softcrop
-add_image_size('stack-square', 500, 500, array('left', 'top'));   
-    
 add_image_size( 'halim-portret', 400, 9999 );  //400 pixels wide (and unlimited height)
 add_image_size( 'halim-landscape', 9999 ,400);  // unlimited width and 400 pixels height 
+
+----------------------------------------------
+add_image_size('stack-square', 500, 500, array('left', 'top'));   
+add_image_size('stack-square2', 600, 600, array('right', 'top'));   
+    
+above code may not work properly , 
+Because WordPress adds 'SRC set' to make the image responsive ,
+To avoid that & show your expected image portion add below code 
+  
+  add_filter('wp_calculate_image_srcset', '__return_null');
 
 ============ Use sizes ==========
 the_post_thumbnail( 'halim-square' );
