@@ -28,7 +28,7 @@ With same dymenson (size) you can't define two img size
 add_image_size( $name:string, $width:integer, $height:integer, $crop:boolean|array );
 
 add_image_size( 'halim-square', 400, 400 ,true);  //  'true' will hardcrop the image & 'empty value' will softcrop
-    add_image_size('stack-square', 500, 500, array('left', 'top'));   
+add_image_size('stack-square', 500, 500, array('left', 'top'));   
     
 add_image_size( 'halim-portret', 400, 9999 );  //400 pixels wide (and unlimited height)
 add_image_size( 'halim-landscape', 9999 ,400);  // unlimited width and 400 pixels height 
@@ -43,4 +43,5 @@ What will happne to old images ?
 tell users to download 'Regenerate Thumbnails' plugin 
 'check' regenrate existing thumbnails
 'click' Regenrate thumbnails
+( It will consume CPU power )
 
