@@ -92,6 +92,7 @@ function target_main_category_query_with_conditional_tags( $query ) {
 
 			// Let's change the query for category archives.
 			$query->set( 'posts_per_page', 15 );
+			$query->set( 'post__not_in', array( 7, 11 ) );
 		}
 	}
 }
