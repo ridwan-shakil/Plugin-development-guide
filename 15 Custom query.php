@@ -3,6 +3,7 @@
    
 //   main documentation :   https://developer.wordpress.org/reference/classes/wp_query/
 //   Offline documentation: https://devdocs.io/wordpress/classes/wp_query
+//   Code genrator:         https://generatewp.com/wp_query/
 
 // =========================
     example 
@@ -77,3 +78,21 @@ $paged   = get_query_var("paged") ? get_query_var("paged") : 1;  // For paginati
                     ?>
 
 <?php
+
+// ============================================
+// Change any argument of "wp_query" without touching the main code 
+// ============================================
+function target_main_category_query_with_conditional_tags( $query ) {
+	if ( ! is_admin() && $query->is_main_query() ) {
+		// Not a query for an admin page.
+		// It's the main query for a front end page of your site.
+
+		if ( is_category() ) {
+			// It's the main query for a category archive.
+
+			// Let's change the query for category archives.
+			$query->set( 'posts_per_page', 15 );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'target_main_category_query_with_conditional_tags' );
