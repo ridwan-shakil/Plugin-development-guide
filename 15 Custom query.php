@@ -5,6 +5,15 @@
 //   Offline documentation: https://devdocs.io/wordpress/classes/wp_query
 //   Code genrator:         https://generatewp.com/wp_query/
 
+	 
+// =========================
+// Note	 
+// ========================= 
+Creat " archive-'CPT name'.php " page to display all custom posts 
+	 example: for 'Books ' custom post type , archive page will be " archive-books.php "
+	 
+	 
+	 
 // =========================
     example 
 // =========================
