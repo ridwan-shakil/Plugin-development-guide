@@ -10,7 +10,8 @@
 // Note	 
 // ========================= 
 Creat " archive-'CPT name'.php " page to display all custom posts 
-	 example: for 'Books ' custom post type , archive page will be " archive-books.php "
+	 example: For 'Books ' custom post type , archive page will be " archive-books.php "
+		 For single 'Book' page create ' single-book.php "
 	 
 	 
 	 
