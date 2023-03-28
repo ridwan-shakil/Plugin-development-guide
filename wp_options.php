@@ -14,16 +14,16 @@
  
 
 <?php
-<!-- updation the option value into wp_option table  -->
+//  updation the option value into wp_option table  
     
    $num_of_post = get_option('dbw_posttoshow', 5);
     if (isset($_POST['dbw_numofpost']) && $_POST['dbw_numofpost'] > 0) {
         $num_of_post = sanitize_text_field($_POST['dbw_numofpost']);
-        update_option('dbw_posttoshow', $num_of_post);
+        update_option('dbw_posttoshow', $num_of_post);   // update option value
     }
 
 
-<!-- Show the option value  -->
+//  Show the option value  
 echo get_option('dbw_posttoshow', 5);
 
 ?>
