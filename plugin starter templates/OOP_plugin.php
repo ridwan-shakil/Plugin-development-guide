@@ -48,3 +48,4 @@ class main {
         wp_enqueue_style('posts_to_qrcode_style', plugin_dir_url(__FILE__) . "style.css");
     }
 }
+new main;
