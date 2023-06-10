@@ -4,6 +4,11 @@
 
 // we can save any value to this table & retrive the data from it 
 
+ add_option('dbversion', $db_version);     // Add a value for the first time
+ update_option('dbversion', $db_version);  // update the added value 
+
+ get_option('dbversion');  // Show the value
+
 
 
 // input fields 
