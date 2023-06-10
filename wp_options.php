@@ -6,6 +6,7 @@
 
  add_option('dbversion', $db_version);     // Add a value for the first time
  update_option('dbversion', $db_version);  // update the added value 
+ delete_option( $option:string );    // delete option
 
  get_option('dbversion');  // Show the value
 
