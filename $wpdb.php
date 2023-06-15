@@ -1,7 +1,10 @@
 <?php
+
 dicumentation = https://developer.wordpress.org/reference/classes/wpdb/
 
-
+// ========================
+// database oprations 
+// ========================
 wpdb oprations
   function clbc_wpdb_page() {
     global $wpdb;
