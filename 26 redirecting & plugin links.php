@@ -1,4 +1,8 @@
 <?php
+//===========================================
+// hasin hayder : https://github.com/LearnWithHasinHayder/plugin-actions/blob/master/plugin-action.php
+//===========================================
+
 
 /**
  * This function redirects to a specific admin menu page when a specific plugin is activated.
