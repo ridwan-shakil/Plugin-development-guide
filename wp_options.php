@@ -5,8 +5,8 @@
 // we can save any value to this table & retrive the data from it 
 // Direct access to options table data from admin pannel => http://your_website.com/wp-admin/options.php
 
- add_option('dbversion', $db_version);     // Add a value for the first time
- update_option('dbversion', $db_version);  // update the added value 
+ add_option('dbversion', $db_version);     // Add option if if doesn't exist already
+ update_option('dbversion', $db_version);  // update if exists or create 
  delete_option( $option:string );    // delete option
 
  get_option('dbversion');  // Show the value
