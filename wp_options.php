@@ -6,11 +6,32 @@
 // Direct access to options table data from admin pannel => http://your_website.com/wp-admin/options.php
 
  add_option('dbversion', $db_version);     // Add option if if doesn't exist already
- update_option('dbversion', $db_version);  // update if exists or create 
+ replace_option($key , $value );  // Replace the value if the $key  already exists 
+ update_option('dbversion', $db_version);  // update if exists or create  ( Most usefull )
  delete_option( $option:string );    // delete option
 
- get_option('dbversion');  // Show the value
+ get_option($key);  // Show the value
 
+//add filter into option key 'option_{key name}'
+add_filter('option_rs_country', function ($data) {
+    return  strtoupper($data);
+});
+
+
+
+
+
+// ====================== Export data =====================
+// First get exported data 
+$exported_data = '{"rs_country":"INDIA IS A OVER POPULATED COUNTRY","rs_countries":["Nepal","Vutan","Nagaland"],"rs_json_countries":["India","South Africa","America","Soudiarab","Albania","Naizaria","Bangladesh"]}';
+                $array_data = json_decode($exported_data, true);
+                // print_r($array_data);
+                foreach ($array_data as $key => $value) {
+                    if ($key == 'rs_json_countries') {  // Json data must have to encode before saving, because where geting the deta is decoding it 
+                        $key = json_encode($key);
+                    }
+                    update_option($key, $value);
+                }
 
 
 // input fields 
