@@ -1,9 +1,12 @@
-// Step 1 ------------------------- Set deta thet will be get by jquery 
+// ================================================== 
+// Step 1 : Set deta thet will be get by jquery 
+// ================================================== 
 input fields 
 or
 <button class="action-btn" data-task="add-option">Add option</button>
-
-// Step 2 ------------------------- Sent ajax url & nonce to jquery file 
+// ================================================== 
+// Step 2 : Sent ajax url & nonce to jquery file 
+// ================================================== 
 <?php
 wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array('jquery'), '1.0.0', true);
 
@@ -15,8 +18,10 @@ wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array(
             'nonce'    => wp_create_nonce('title_example'),
         )
     );
-// Step 3 ------------------------- Ajax request in wordpress
-//jqajaxwp
+// ================================================== 
+// Step 3 : Ajax request in wordpress
+// ================================================== 
+//jqAjaxWp
  $.post(my_ajax_obj.ajax_url, {      //POST request
                 _ajax_nonce: my_ajax_obj.nonce, //nonce
                 action: "rs_actions",           //action
@@ -25,12 +30,28 @@ wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array(
                 $('.result').text(data);
             }
             );
-// Step 4 -------------------------
+// ================================================== 
+// Step 4 : Here the callback function will perform operations & handover the result to that ajax request , from wher that request came from 
+// ================================================== 
 add_action('wp_ajax_rs_actions', 'clbc_function_to_perform_oprations');
 // add_action('wp_ajax_{action name of ajax request }', 'functionName');
-// Here the callback function will perform oprations & handover the result to that ajax request , from wher that request came from 
+
+function clbc_function_to_perform_oprations() {
+    $nonce_verified = wp_verify_nonce($_POST['_ajax_nonce'], 'title_example');
+
+    if ($nonce_verified) {
+        $task = $_POST['data'];
+       // get the data that has been passed from ajax & perform oprations here 
+    } else {
+        echo 'Nonce is not varified';
+    }
+
+    wp_die(); // All ajax handlers die when finished
+}
 ?>
-// Step 5 ------------------------- This is wher ajax is showing the result
+// ================================================== 
+// Step 5 : This is wher ajax is showing the result
+// ================================================== 
 <div class="result">
     <!-- Result will be displayed here through Ajax -->
 </div>
