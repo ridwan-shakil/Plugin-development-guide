@@ -29,5 +29,8 @@ wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array(
 add_action('wp_ajax_rs_actions', 'clbc_function_to_perform_oprations');
 // add_action('wp_ajax_{action name of ajax request }', 'functionName');
 // Here the callback function will perform oprations & handover the result to that ajax request , from wher that request came from 
-
-// Step -------------------------
+?>
+// Step 5 ------------------------- This is wher ajax is showing the result
+<div class="result">
+    <!-- Result will be displayed here through Ajax -->
+</div>
