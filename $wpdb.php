@@ -9,7 +9,7 @@ wpdb oprations
   function clbc_wpdb_page() {
     global $wpdb;
     $table = $wpdb->prefix . 'persons';
-  // select
+  //==================== select
     $wpdb->get_results(
         "
             SELECT *
@@ -18,7 +18,14 @@ wpdb oprations
             
         "
     );
-  // insert
+
+  // OR
+    $result =  $wpdb->get_row("select * from {$table_name} where id=2");
+     print_r($result);
+
+
+  
+  // ==================  insert
   $wpdb->insert(
         $table_name,
         array(
