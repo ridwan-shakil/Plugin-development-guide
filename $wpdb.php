@@ -20,9 +20,11 @@ wpdb oprations
     );
 
   // OR
-    $result =  $wpdb->get_row("select * from {$table_name} where id=2");
+    $result =  $wpdb->get_row("select * from {$table_name} where id=2");    // give data in Object formate 
      print_r($result);
 
+    $result =  $wpdb->get_row("select * from {$table_name} where id=2", ARRAY_A);   // give data in assosiative array formate 
+    $result =  $wpdb->get_row("select * from {$table_name} where id=2", ARRAY_N);   // give data in Numaric array formate 
 
   
   // ==================  insert
