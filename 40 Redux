@@ -1,3 +1,4 @@
 (* If you bind Redux with your theame, Your Theme is not gonna pass theme check  *)
 (* Require Redux with TGM  *)
 use Redux 4 naming system , change ( setArgs to set_args  )
+sebsection => true  ) defines if this section should appear as a subsection to the previously defined section.
