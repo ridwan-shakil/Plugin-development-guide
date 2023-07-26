@@ -7,23 +7,17 @@ wp_enqueue_scripts    // it's for adding css of js into frontend of website
 // adding scripts for admin panel 
 // ====================================
 function pqrc_enque_admin_scripts($screen) {
-    
+// For top level menu 
+ if ('toplevel_page_{your-menu-slug}' == $screen) {
+        wp_enqueue_style('team_members_admin', plugin_dir_url(__FILE__) . '/admin/css/team_members_admin.css');
+    }
+   
 // for complex page url
 //     $current_screen = get_current_screen();
 //     if ('edit.php' == $screen && 'page' == $current_screen->post_type) {
         // }
 
     
-    if ('options-general.php' == $screen) {
-        // css
-        wp_enqueue_style('pqrc_minitoggle_css', plugin_dir_url(__FILE__) . "assets/css/minitoggle.css");
-
-
-        // js 
-        wp_enqueue_script('pqrc_minitoggle_js', plugin_dir_url(__FILE__) . "/assets/js/minitoggle.js", ['jquery'], '1.0', true);
-
-        wp_enqueue_script('pqrc_main_js', plugin_dir_url(__FILE__) . '/assets/js/pqrc_main.js', ['jquery'], time(), true);
-    }
 }
 add_action('admin_enqueue_scripts', 'pqrc_enque_admin_scripts');
 
