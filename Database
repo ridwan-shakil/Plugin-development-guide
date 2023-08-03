@@ -1,0 +1,3 @@
+// Reduce database size 
+ in your wp-config.php file: define( 'WP_POST_REVISIONS', 5 ); The number 5 is the number of
+revisions to save for a post 
