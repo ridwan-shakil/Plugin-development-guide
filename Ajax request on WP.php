@@ -1,3 +1,4 @@
+// Documentation: https://awhitepixel.com/blog/wordpress-use-ajax/
 // ================================================== 
 // Step 1 : Set deta thet will be get by jquery 
 // ================================================== 
