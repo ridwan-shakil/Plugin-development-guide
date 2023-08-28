@@ -1,2 +1,0 @@
-In summary, use Composer when your WordPress plugin requires external dependencies or when you're collaborating on larger projects. 
-However, for simpler projects or while you're still in the learning phase, it might be best to keep things simple and not use Composer unnecessarily.
