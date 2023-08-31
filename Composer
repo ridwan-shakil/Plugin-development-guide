@@ -1,3 +1,27 @@
 // In summary, use Composer when your WordPress plugin requires "external dependencies" or
 // when you're collaborating on "larger projects".
 // However, for simpler projects it might be best to keep things simple and not use Composer unnecessarily.
+
+---------------
+Use cases :
+---------------
+Using only built-in autoloader 
+to load 3rd party libraries without manually downloading them,
+include and manage the external libraries your plugin needs. This will help ensure that your plugin's dependencies are well-organized and compatible with each other.
+---------------
+How to use :
+---------------
+Open VScode/PowerShell run composer init,  
+give other info and generate composer.json
+Composer.json is the main DNA where we will make changes according to our needs.
+The vendor  folder will generate automatically, so don't touch it 
+After making changes on composer.json and running the code to regenerate the vendor file =  composer dump-autoload
+file_name.php and class name  should have the same name. 
+Namespace will have the same name as the folder name in which the file exists 
+
+Write this code in the main plugin.php file 
+      if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+      	    require_once dirname(__FILE__) . '/vendor/autoload.php';
+      	}
+
+Refrance : https://www.youtube.com/watch?v=nbF4hWJ1hJA&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=12&ab_channel=AlessandroCastellani
