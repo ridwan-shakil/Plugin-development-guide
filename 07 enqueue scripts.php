@@ -27,6 +27,13 @@ add_action('admin_enqueue_scripts', 'pqrc_enque_admin_scripts');
 
 function posts_qrcode_enque_style() {
     wp_enqueue_style('posts_to_qrcode_style', plugin_dir_url(__FILE__) . "style.css");
+             // ---------- Adding inline css from user input ---------------       
+             // Users custom css from the settings page
+           		$custom_css = get_option('custom_css');
+           		if (!empty($custom_css)) {
+           			wp_add_inline_style($this->plugin_name, $custom_css);  // It's naem must be same as the main css file 
+           		}
+             // end of inline css 
 }
 
 add_action('wp_enqueue_scripts', 'posts_qrcode_enque_style');
