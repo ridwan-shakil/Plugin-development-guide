@@ -58,17 +58,19 @@ add_action('init', 'clbc_asn_plugin_init');
 // Register scripts only for specific page 
 // ====================================
 // For top level menu 
- if ('toplevel_page_{your-menu-slug}' == $screen) { }
+	 if ('toplevel_page_{your-menu-slug}' == $screen) { 
 
-// For submenu 
-
-
+// For submenu // echo $screen ; and use it 
+	if ('team_member_showcase_page_team-member-showcase-settings' == $screen) { 
+	
 // For the CPT page 
-if ('post-new.php' == $screen && 'team_member_showcase' == get_current_screen()->post_type) { }
+	if ('post-new.php' == $screen && 'team_member_showcase' == get_current_screen()->post_type) { 
 
-// only for the page where "TEAM_MEMBERS" shortcode is being used 
-global $post;
-		if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'TEAM_MEMBERS')) { }
+
+		// -------------- For frontend -------------
+// only for the page where the "TEAM_MEMBERS" shortcode is being used 
+	global $post;
+	if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'TEAM_MEMBERS')) { 
 
 
 
