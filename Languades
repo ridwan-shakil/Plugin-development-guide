@@ -1,0 +1,11 @@
+Your work is only to create a .pot file 
+
+there are many ways to crate an .pot file   |  see the documentation https://developer.wordpress.org/plugins/internationalization/localization/
+
+There are 3 type of files 
+one .pot file 
+one .po file for every language 
+one .mo file for every language 
+
+There are wordpress won team to translate the theme & plugins , they are called translators . 
+Those Translators work is to crate .po & .mo files for every languages 
