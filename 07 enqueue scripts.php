@@ -64,7 +64,11 @@ add_action('init', 'clbc_asn_plugin_init');
 	if ('team_member_showcase_page_team-member-showcase-settings' == $screen) { 
 	
 // For the CPT page 
-	if ('post-new.php' == $screen && 'team_member_showcase' == get_current_screen()->post_type) { 
+		global $post;
+		if ('post-new.php' == $screen || 'post.php' == $screen) {   // add new post & edit post  page
+			if ('team_member_showcase' === $post->post_type)
+				// enqueue scripts here 
+		}
 
 
 		// -------------- For frontend -------------
