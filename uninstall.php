@@ -17,9 +17,13 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 //  Clear database 
 // ==========================
   
-  // Clear CPT data 
-  $teams = get_posts(array('post_type' => 'team_member_showcase', 'numberposts' => -1));
-  foreach ($teams as $team) {
-  	wp_delete_post($team->ID, true);
-  }
+ // Clear database 
+$teams = get_posts(array(
+	'post_type' => 'team_member_showcase',
+	'numberposts' => -1,
+	'post_status' => array('publish', 'draft', 'auto-draft', 'trash'),
+));
+foreach ($teams as $team) {
+	wp_delete_post($team->ID, true);
+}
 
