@@ -2,6 +2,12 @@
 
 
 
+
+//=================================================
+phpcs      // it is for finding the errord 
+phpcbf     // it is for auto fixing the errors 
+
+    
 // ----------------------
 // see errors & warnings ( uses phpcs )
 // ----------------------
@@ -9,7 +15,7 @@
     phpcs --standard=WordPress .
 or
 // It runs for a specific file
-    phpcs --standard=WordPress /path/to/your/code
+    phpcs --standard=WordPress path/to/your/code        //e;g :   phpcs --standard=WordPress  admin/partials/add_team_section.php
 
   
 // ----------------------
@@ -19,4 +25,4 @@ or
       phpcbf --standard=WordPress .
 or 
 // it runs for a specific file
-      phpcbf --standard=WordPress /path/to/your/code
+      phpcbf --standard=WordPress path/to/your/code
