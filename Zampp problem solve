@@ -1,0 +1,8 @@
+MYSql not starting
+
+go to =>  zampp -> mysql  
+copy 'data' file pest and rename as 'data-old'
+copy all files from 'backup' folder without 'ibdata1' 
+pest them in to 'data' folder   / replace them 
+
+now my sql should start 
