@@ -1,0 +1,33 @@
+==============================
+WP plugin development steps
+==============================
+1.	Choose a unique slug for your plugin ( make sure it doesn't exist in the wp repo )
+2.	Define Your Plugin's Purpose and Features:
+3.	Plan Your Plugin:
+4.	Breakdown the plugin into small pieces 
+5.	Optional: Create a boilerplate from https://wppb.me/ 
+------------------------------
+Start coding
+------------------------------
+6.	If your plugin requires user interaction, create settings pages, widgets, shortcodes, or custom post types to provide a user interface.
+7.	activation 
+8.	deactivation 
+9.	uninstallation
+10.	secure input 
+11.	escape outputs
+12.	add caching for queries and optimize Performance:  ( use Query monitor plugin  )
+13.	Test Your Plugin with different WP versions, popular themes, and popular plugins
+14.	follow WordPress standard
+------------------------------
+Optional
+------------------------------
+15.	generate  .pot   file for translation
+16.	Use a version control system like Git 
+17.	readme.txt
+18.	Submit to the WordPress Plugin Repository (Optional):
+19.	Provide Support and Updates:
+20.	Monitor and Improve:
+
+
+
+
