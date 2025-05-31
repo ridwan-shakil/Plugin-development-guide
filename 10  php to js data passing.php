@@ -16,6 +16,28 @@
         wp_localize_script('pqrc_main_js', 'sitedata', $data);
 
 
+  // =============== enque admin scripts ================
+    function load_admin_scripts($screen) {
+        $_screen = get_current_screen();
+        if ('edit.php' == $screen && 'post' == $_screen->post_type) { // -----Load on specific page----
+            wp_enqueue_style('assetninja_admin_css', ASN_ASSETS_DIR . '/admin/css/main.css', '', VERSION);
+
+            wp_enqueue_script('assetninja_admin_js', ASN_ASSETS_DIR . '/admin/js/main.js', ['jquery'], VERSION, true);
+        }
+    }
+
+   //========= Deregister and register scripts ==========
+    add_action( 'init', 'deregister_scripts' );
+    function deregister_scripts() {
+        wp_deregister_style( '$handle:string' );
+        wp_register_style( '$handle:string', '$src:string|false');
+
+        wp_deregister_script( '$handle:string' );
+        wp_register_script( '$handle:string', '$src:string|false');
+    }
+
+
+
 
 // ================================
 // Injecting css or js into a file 
