@@ -7,6 +7,10 @@ Default post types are :
 4) Attachments
 5) Revisions
 
+
+texonomy => ( category , tag ) => term 
+
+
 // =============================
   Notes
 // =============================
