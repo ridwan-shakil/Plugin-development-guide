@@ -15,14 +15,15 @@ texonomy => ( category , tag ) => term
   Notes
 // =============================
 1) Alloways write "CPT" inside a plugin 
-2) 
+2) CPT has 2 parts : labels & enable/disable functionalaties 
 3)
 4)
  
 -------------------------------
-There are 2 ways to create "CPT" 
-  1) Use " cpt ui " plugin > creat CPT > copy the code > pest inside the plugin 
-  2) Write the code from scratch 
+There are different ways to create "CPT" 
+  1) Generate code from "Generate WP" or from any other website 
+  2) Use " cpt ui " plugin > creat CPT > copy the code > pest inside the plugin 
+  3) Write the code from scratch 
  
 
 
