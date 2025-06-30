@@ -12,7 +12,7 @@ Default post types are :
 // =============================
 1) Alloways write "CPT" inside a plugin 
 2) CPT has 2 parts : labels & enable/disable functionalaties 
-3)
+3) pages for CPT : archive = archive-{books}.php , single = single-{book}.php , 
 4)
  
 -------------------------------
