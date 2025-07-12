@@ -8,7 +8,8 @@
       * class= "notice notice-error"
       * class= "is-dismissible"          // close button (X)
 
-2) Use cookie to show notice after a certain period of times (showing notices all the time is annoying)
+2) Use cookie to show notice after a certain period of times (showing notices all the time is annoying 
+   as it appeair on all of the admin pages)
 
 
 <?php
