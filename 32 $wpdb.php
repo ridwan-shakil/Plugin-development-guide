@@ -1,11 +1,11 @@
 <?php
 
-dicumentation = https://developer.wordpress.org/reference/classes/wpdb/
+documentation = https://developer.wordpress.org/reference/classes/wpdb/
 
 // ========================
 // database oprations 
 // ========================
-wpdb oprations
+// wpdb oprations
   function clbc_wpdb_page() {
     global $wpdb;
     $table = $wpdb->prefix . 'persons';
