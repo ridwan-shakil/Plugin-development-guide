@@ -8,7 +8,7 @@
  add_option('dbversion', $db_version);     // Add option if if doesn't exist already
  replace_option($key , $value );  // Replace the value if the $key  already exists 
  update_option('dbversion', $db_version);  // update if exists or create  ( Most usefull )
- delete_option( $option:string );    // delete option
+ delete_option( $option_key );    // delete option
 
  get_option($key);  // Show the value
 
@@ -17,10 +17,16 @@ add_filter('option_rs_country', function ($data) {
     return  strtoupper($data);
 });
 
+?>
+NOTES:
+ 1) do json_encode before saving arrays to the DB , if you want redability / than do json_decode before showing / json_encode ("",true) = if want as Array
+ 2) if don't do json_encode array will saved in the DB as serialized "String" / when get , it will come as Array
+ 3) update_option replaces entire old data with new one / or creates new , if doesn't exists
+ 4) Must to : prefix options key to avoid conflicts
 
 
 
-
+<?php
 // ====================== Export data =====================
 // First get exported data 
 $exported_data = '{"rs_country":"INDIA IS A OVER POPULATED COUNTRY","rs_countries":["Nepal","Vutan","Nagaland"],"rs_json_countries":["India","South Africa","America","Soudiarab","Albania","Naizaria","Bangladesh"]}';
