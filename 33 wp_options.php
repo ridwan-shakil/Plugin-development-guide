@@ -27,7 +27,21 @@ NOTES:
 
 
 <?php
-// ====================== Export data =====================
+//==================================
+// Export / Import options data 
+//==================================
+types of data :
+  $key_normal = [];
+  $key_array =  [];
+  $key_json  =  [];
+
+
+
+
+
+
+
+// ====================== import data =====================
 // First get exported data 
 $exported_data = '{"rs_country":"INDIA IS A OVER POPULATED COUNTRY","rs_countries":["Nepal","Vutan","Nagaland"],"rs_json_countries":["India","South Africa","America","Soudiarab","Albania","Naizaria","Bangladesh"]}';
                 $array_data = json_decode($exported_data, true);
