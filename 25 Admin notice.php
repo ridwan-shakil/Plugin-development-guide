@@ -1,3 +1,16 @@
+
+
+ Notes :
+1) inside notice first div add class names according to your need such as :
+      * class= "notice"                  // normal notice
+      * class= "notice notice-success"
+      * class= "notice notice-warning"                
+      * class= "notice notice-error"
+      * class= "is-dismissible"          // close button (X)
+
+2) Use cookie to show notice after a certain period of times (showing notices all the time is annoying)
+
+
 <?php
 
 // =======================================================
