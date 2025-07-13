@@ -1,4 +1,22 @@
+
+✅ When It's Perfectly Fine:
+Transients are excellent for non-critical, regenerable data, like:
+    1. Cached API responses
+    2. Cached query results
+    3. Reusable computations
+    4. Expensive HTML markup (e.g., output of a heavy shortcode)
+
+
 <?php
+
+// Functions :
+set_transient($key, $data, $expiry);
+get_transient("rs_posts_title");
+delete_transient('rs_country');
+
+
+
+
 //=============================
 // Set transient if already does't exists ( set_transient )
 //=============================
