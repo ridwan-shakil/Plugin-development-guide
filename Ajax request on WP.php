@@ -1,4 +1,21 @@
 // Documentation: https://awhitepixel.com/blog/wordpress-use-ajax/
+
+
+
+ajax call are 2 types :
+    1) privileged ajax call     = only loged in users can do that 
+    2) unprivileged ajax call
+
+
+add_action( wp_ajax_{action_name},"")        = privileged ajax call (loged in users can do)
+..........( wp_ajax_nopriv_{action_name),"") = unpreviliged ajax call (non logedin users can do)
+
+
+
+
+
+
+
 // ================================================== 
 // Step 1 : Set deta thet will be get by jquery 
 // ================================================== 
