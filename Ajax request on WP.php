@@ -1,5 +1,7 @@
 // Documentation: https://awhitepixel.com/blog/wordpress-use-ajax/
 
+NOTES: 
+    wp_localize_script() //it's not a part of ajax , it's used to send data from php to jQuery
 
 
 ajax call are 2 types :
