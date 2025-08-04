@@ -1,0 +1,94 @@
+Here's a step-by-step guide to integrate Plugin Update Checker (PUC) with GitHub so your users can receive plugin updates directly in the WordPress admin panel.
+
+✅ Step-by-Step Setup for Plugin Update Checker (GitHub)
+🔧 1. Prepare Your Plugin Repository on GitHub
+Create a public GitHub repository (private also works with an access token, but public is simpler).
+
+Structure your plugin folder like this:
+
+cpp
+Copy
+Edit
+your-plugin/
+├── your-plugin.php
+├── readme.txt (optional)
+└── plugin-update-checker/ (PUC library will go here)
+Inside your main plugin file (e.g. your-plugin.php), make sure to define:
+
+php
+Copy
+Edit
+/*
+Plugin Name: Your Plugin Name
+Version: 1.0.0
+*/
+
+📁 2. Add the Plugin Update Checker Library
+Download from GitHub:
+https://github.com/YahnisElsts/plugin-update-checker
+
+Place the entire plugin-update-checker folder inside your plugin.
+
+🧩 3. Add the Update Checker Code
+Add this near the top of your main plugin file (your-plugin.php):
+
+php
+Copy
+Edit
+require plugin_dir_path(__FILE__) . 'plugin-update-checker/plugin-update-checker.php';
+
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/your-username/your-plugin-repo/',
+    __FILE__,
+    'your-plugin-slug'
+);
+🔁 Replace:
+
+'your-username/your-plugin-repo' with your actual GitHub username/repo
+
+'your-plugin-slug' with your plugin's slug (folder name)
+
+🏷️ 4. Tag Releases in GitHub
+To trigger updates:
+
+Commit all plugin files to your GitHub repo
+
+Go to GitHub > Releases → Create a new release
+
+Use the tag like v1.0.1 (must match version in your plugin header)
+
+Upload the ZIP if you want (optional)
+
+✅ Now, whenever you update the plugin:
+
+Change the Version: in your plugin file
+
+Create a new GitHub release with a matching tag
+
+🔐 Optional: Use GitHub Access Token (for private repo)
+If your repo is private, generate a GitHub Personal Access Token (with repo scope) and add this after the checker:
+
+php
+Copy
+Edit
+$myUpdateChecker->setAuthentication('your_github_token');
+
+🧪 5. Test the Update
+Install the plugin on a test site from ZIP or GitHub clone
+
+When a new version is tagged on GitHub:
+
+It will appear in Dashboard > Updates and Plugins page
+
+You can update it like any other plugin
+
+🧼 Example Folder Structure
+sql
+Copy
+Edit
+your-plugin/
+├── plugin-update-checker/
+├── your-plugin.php
+└── ...
+✅ Bonus: Add Changelog (Optional)
+You can use GitHub release description to show changelog in the plugin update modal.
