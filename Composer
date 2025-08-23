@@ -5,9 +5,9 @@
 ---------------
 Use cases :
 ---------------
-Using only built-in autoloader 
-to load 3rd party libraries without manually downloading them,
-include and manage the external libraries your plugin needs. This will help ensure that your plugin's dependencies are well-organized and compatible with each other.
+1) Using only built-in autoloader 
+2) to load 3rd party libraries without manually downloading them, include and manage the external libraries your plugin needs. This will help ensure that your plugin's dependencies are well-organized and compatible with each other.
+
 ---------------
 How to use :
 ---------------
@@ -25,3 +25,17 @@ Write this code in the main plugin.php file
       	}
 
 Refrance : https://www.youtube.com/watch?v=nbF4hWJ1hJA&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=12&ab_channel=AlessandroCastellani
+
+
+------------------------
+now we don't need ( require, includes ) anymore ( Composer Autoloding will handle it )
+Now we can just type :
+1) use namespace\classname; 
+  use sre\classname;
+  use src\admin\classname;
+
+2) and than:
+  new className();
+  new className2();
+
+
