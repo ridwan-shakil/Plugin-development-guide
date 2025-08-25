@@ -1,0 +1,10 @@
+register_setting()  -->  WP registers option + sanitize rules
+add_settings_field() -->  WP registers UI field definitions
+↓
+<form action="options.php"> -->  User submits form
+↓
+options.php  -->  validates nonce + group
+↓
+update_option()  -->  data saved in wp_options
+↓
+get_option()  -->  show saved value next time
