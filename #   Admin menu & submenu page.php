@@ -1,6 +1,7 @@
 <?php
 // Notes:
 // 1. (Give the same slug to the top menu & first submenu ) To open the first submenu on the top menu click 
+// 2. add_options_page() is used to show the submenu under "Settings" menu, here menu slug is predefined { Basically it's a wrapper of add_submenu_page() }
 
 
 
