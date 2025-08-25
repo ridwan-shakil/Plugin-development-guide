@@ -1,0 +1,37 @@
+ # 2 types of API : internal & External 
+
+🔹 1. Internal (WordPress Developer) APIs
+  👉 These don’t expose HTTP endpoints. Instead, they give you structured ways to interact with WP internals.
+  You’ll use these all the time while building plugins.
+
+  •	⭐ Hooks API (Actions & Filters) → Connect your plugin code into WordPress lifecycle.
+  •	⭐ Options API → Save & retrieve plugin settings in wp_options.
+  •	⭐ Settings API → Create admin settings pages in a standardized way. ( Options + Settings API (to store plugin settings) )
+  •	⭐ Metadata API → Store extra info for posts, users, terms, comments.
+  •	⭐ Roles & Capabilities API → Control user permissions for your plugin.
+  •	Shortcode API → Add [shortcode] functionality for users.
+  •	Cron API (WP-Cron) → Schedule background tasks.
+  •	Database API (wpdb) → Run custom SQL queries safely.
+  •	Filesystem API → Safely read/write files (updates, uploads).
+  •	HTTP API (wp_remote_get/post) → Call external APIs.
+  •	Transients API → Temporary caching for performance.
+  •	Plugin API (activation/deactivation hooks) → Run code when your plugin is activated/deactivated.
+  •	Internationalization (i18n/l10n) API → Make your plugin translatable.
+  •	Widget API → Add sidebar widgets (less used now, but still around).
+  •	Customizer API → Add options into the Theme Customizer (optional).
+
+
+🔹 2. External-facing APIs
+👉 These let outside apps or clients talk to WordPress.
+•	⭐ REST API → The modern HTTP API for CRUD (create, read, update, delete) operations on posts, users, custom data.
+•	(Legacy) XML-RPC API → Older external API, mostly replaced by REST, but still exists.
+
+
+📌 focus on:
+•	Hooks API (to connect your code to WordPress)
+•	Options + Settings API (to store plugin settings)
+•	Metadata API (to store extra info)
+•	REST API (to expose your plugin’s data/functions externally)
+•	Roles & Capabilities API (to control permissions)
+•	Cron API (for scheduled tasks)
+👉 Master these and you’ll cover 90% of what real plugins need.
