@@ -1,7 +1,10 @@
 -------------- shortcut ---------------
-npm init
-copy pest package name from npmjs.com (e.g : npm i choices.js )
-npm run build ( builds the necessery file and move it to "assets/js" ) now no need "node/modules"
+npm init -y              = (👉 Creates package.json)
+copy pest package name from npmjs.com (e.g =     npm i choices.js    )  👉 Downloads Choices.js into node_modules/
+
+npm install --save-dev webpack webpack-cli        👉 Installs webpack
+
+npm run build         ( builds the necessery file and move it to "assets/js" ) now no need "node/modules"
 enqueue that new js file into your plugin 
 Now use the package
 
