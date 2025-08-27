@@ -1,0 +1,74 @@
+
+📦 npm Notes for WordPress Plugin Development
+What is npm?
+•	npm = Node Package Manager
+•	A tool that manages JavaScript libraries and dependencies.
+•	Similar to Composer for PHP, but for JS.
+•	Comes with Node.js (so you need Node installed).
+________________________________________
+
+Why use npm in WordPress Plugins?
+•	Avoid manually downloading .js files.
+•	Quickly install and update libraries (e.g., npm install choices.js).
+•	Keep plugin size small (don’t commit node_modules).
+•	Use modern tools (webpack, vite, gulp) to bundle, minify, and optimize scripts.
+•	Ensures consistency across projects with package.json.
+________________________________________
+
+Core Files
+1.	package.json
+o	Created with npm init -y
+o	Stores project details + list of dependencies.
+{
+  "name": "my-wp-plugin",
+  "version": "1.0.0",
+  "dependencies": {
+    "choices.js": "^10.2.0"
+  }
+}
+2.	node_modules/
+o	Where all installed packages live (auto-generated).
+o	⚠️ Don’t commit this folder to GitHub.
+3.	package-lock.json
+o	Ensures everyone installs the exact same versions.
+o	Should be committed to GitHub.
+________________________________________
+
+Basic Commands
+•	Initialize:
+•	npm init -y
+•	Install a package:
+•	npm install choices.js
+•	Install for dev tools only (not needed in production):
+•	npm install webpack webpack-cli --save-dev
+•	Run a script defined in package.json:
+•	npm run build
+________________________________________
+
+Typical Workflow in a WP Plugin
+1.	npm init -y → create package.json.
+2.	npm install <library> → install JS libraries.
+3.	Write your custom JS (admin.js, frontend.js).
+4.	Use a bundler (like webpack) to combine dependencies into one file.
+o	Example: npm run build → generates admin.bundle.js.
+5.	Enqueue the bundled file in your plugin:
+6.	wp_enqueue_script(
+  'my-plugin-admin',
+  plugins_url('assets/js/admin.bundle.js', __FILE__),
+  ['jquery'],
+  '1.0',
+  true
+);
+________________________________________
+
+Best Practices
+•	Don’t commit node_modules/ (add to .gitignore).
+•	Commit package.json and package-lock.json.
+•	Use --save-dev for build tools (webpack, gulp).
+•	Use dependencies only for libraries you’ll load in your plugin.
+•	Keep a build process (like npm run build) so you always generate optimized files before release.
+________________________________________
+
+✅ Summary:
+npm helps you install and manage JavaScript libraries in your WordPress plugins. Instead of downloading .js files manually, you declare them in package.json, install with npm install, bundle with webpack (or similar), and enqueue the bundled output in WordPress.
+
