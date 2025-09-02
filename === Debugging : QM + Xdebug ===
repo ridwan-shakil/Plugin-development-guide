@@ -1,0 +1,6 @@
+🚀 Workflow Experts Use
+
+Start with WP_DEBUG_LOG for quick bugs.
+If the issue is unclear or involves hooks/data flow → enable Xdebug.
+Place breakpoints in your plugin and in WordPress core (yes, you can debug WordPress itself!).
+Step through until you see exactly where the logic fails.
