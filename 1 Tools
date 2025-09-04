@@ -1,0 +1,8 @@
+========== Package Managers ==========
+  1) Composer   = For php packages
+  2) NPM        = For jquery packages
+
+============= Debugging =============
+  1) Query Monitor WP plugin
+  2) php debug + Xdebug 
+
