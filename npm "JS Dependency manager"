@@ -1,3 +1,8 @@
+👉 Composer = handles PHP packages (server-side).
+👉 npm = handles JS/CSS packages (frontend).
+👉 Webpack/Vite/Rollup = bundles/minifies assets for production.
+
+
 -------------- shortcut ---------------
 npm init -y              = (👉 Creates package.json)
 copy pest package name from npmjs.com (e.g =     npm i choices.js    )  👉 Downloads Choices.js into node_modules/
