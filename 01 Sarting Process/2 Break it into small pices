@@ -1,0 +1,5 @@
+Break the plugin into small pices/Phases
+Create plugins blueprint > deside full structure > folders, files, classes, namespaces
+Whch class will handle which feature > how the feature will be implemented > (chose best way to do that , make sure security )
+create a proper roadmape of building the plugin that will be used to build the plugin 
+plugin will be build into diffenent phases , one by one , on each stape we will have a working plugin .
