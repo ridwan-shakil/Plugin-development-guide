@@ -10,7 +10,7 @@
 2. Copy the folder structure below and add the starter files that follow.
 3. Follow the checklist during development and mark items off as they complete.
 
----
+------------------------------------------------------------------------------------------
 
 ## One‑page Checklist (mark ✅ as you complete)
 
@@ -70,7 +70,7 @@
 * [ ] Schedule dependency updates and PHP/WP compatibility checks.
 * [ ] Track security updates & prepare hotfix process.
 
----
+------------------------------------------------------------------------------------------
 
 ## Recommended Repo Structure
 
@@ -103,7 +103,7 @@ my-wp-plugin/
 └─ my-plugin.php
 ```
 
----
+------------------------------------------------------------------------------------------
 
 ## Starter files (copy into your repo)
 
@@ -131,7 +131,7 @@ jobs:
         run: vendor/bin/phpstan analyse
       - name: Run PHPUnit
         run: vendor/bin/phpunit --configuration phpunit.xml.dist --testsuite unit
-```
+```---------------------------------------------------------------------------------------
 
 ### `composer.json` (minimal)
 
@@ -153,7 +153,7 @@ jobs:
     "phpstan/phpstan": "^1.10"
   }
 }
-```
+```---------------------------------------------------------------------------------------
 
 ### `my-plugin.php` (plugin header + bootstrap)
 
@@ -180,7 +180,7 @@ function my_wp_plugin_init() {
   $plugin->run();
 }
 add_action( 'plugins_loaded', 'my_wp_plugin_init' );
-```
+```---------------------------------------------------------------------------------------
 
 ### `src/Core/Plugin.php` (minimal bootstrap)
 
@@ -212,7 +212,7 @@ class Plugin {
     echo '<div class="wrap"><h1>My Plugin</h1></div>';
   }
 }
-```
+```---------------------------------------------------------------------------------------
 
 ### `phpunit.xml.dist`
 
@@ -225,7 +225,7 @@ class Plugin {
     </testsuite>
   </testsuites>
 </phpunit>
-```
+```---------------------------------------------------------------------------------------
 
 ### `phpcs.xml` (WordPress ruleset)
 
@@ -235,7 +235,7 @@ class Plugin {
   <description>PHPCS rules for MyPlugin</description>
   <rule ref="WordPress" />
 </ruleset>
-```
+```---------------------------------------------------------------------------------------
 
 ### `CONTRIBUTING.md` (short)
 
@@ -248,7 +248,7 @@ class Plugin {
 4. Open a PR with description, testing steps and link to issue
 
 PRs must pass CI and include tests for new logic.
-```
+```---------------------------------------------------------------------------------------
 
 ### `.gitignore`
 
@@ -260,7 +260,7 @@ PRs must pass CI and include tests for new logic.
 /build/
 ```
 
----
+------------------------------------------------------------------------------------------
 
 ## Quick developer setup (add this to README)
 
@@ -269,7 +269,7 @@ PRs must pass CI and include tests for new logic.
 3. `cp .env.example .env` (if env used)
 4. Run tests: `vendor/bin/phpunit`
 
----
+------------------------------------------------------------------------------------------
 
 ## TL;DR — What to include in every plugin repo
 
@@ -280,6 +280,6 @@ PRs must pass CI and include tests for new logic.
 * CONTRIBUTING & PR/Issue templates
 * CHANGELOG.md and release tags
 
----
+------------------------------------------------------------------------------------------
 
 If you want, I can generate these files as actual files in a zip you can download, or create the initial commit tree for you. Tell me which plugin slug you want and I’ll scaffold the files with your namespace and header values.
