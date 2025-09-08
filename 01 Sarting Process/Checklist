@@ -1,0 +1,285 @@
+# WP Plugin Repo Template — One‑page Checklist & Starter Repo
+
+> A single-page checklist you can drop into a GitHub repository as `README.md` (or use it to scaffold a repo). Includes a concise checklist, recommended folder structure, and small starter file templates you can copy.
+
+---
+
+## How to use
+
+1. Create a new GitHub repo (`my-wp-plugin`).
+2. Copy the folder structure below and add the starter files that follow.
+3. Follow the checklist during development and mark items off as they complete.
+
+---
+
+## One‑page Checklist (mark ✅ as you complete)
+
+### Planning & Spec
+
+* [ ] Write full plugin **spec** in plain English (features, acceptance criteria).
+* [ ] Create wireframes / admin UX sketches.
+* [ ] Client / product-owner **sign-off** on spec.
+
+### Architecture & Blueprint
+
+* [ ] Choose namespace (PSR-4) and minimum PHP/WP versions.
+* [ ] Create composer `autoload` mapping.
+* [ ] Define folder & class responsibilities (one-liner for each).
+* [ ] Add `README.md`, `CONTRIBUTING.md`, `ISSUE_TEMPLATE.md`, `PULL_REQUEST_TEMPLATE.md`.
+
+### Development (MVP first)
+
+* [ ] Create plugin bootstrap file and register activation/deactivation hooks.
+* [ ] Implement core feature(s) as small, testable units.
+* [ ] Add capability checks, nonce checks and sanitization.
+* [ ] Enqueue assets only where needed.
+
+### Admin UX & Frontend
+
+* [ ] Build admin screens / settings (with proper validation).
+* [ ] Implement shortcodes / blocks (Gutenberg) with fallback.
+* [ ] Provide helpful error messages and inline help.
+
+### Integrations, Background & Edge Cases
+
+* [ ] Add REST endpoints and permission callbacks if needed.
+* [ ] Implement background processing for heavy work (Action Scheduler or queue).
+* [ ] Add graceful handling for absent dependencies / compatibility checks.
+
+### Testing, Security & Performance
+
+* [ ] Write unit tests (PHPUnit) for core logic.
+* [ ] Run static analysis (PHPStan/Psalm) and PHPCS WordPress rules.
+* [ ] Security checklist: capability checks, escaping, prepared queries.
+* [ ] Performance: transients/caching, optimize DB queries.
+
+### CI & Automation
+
+* [ ] Set up GitHub Actions to run tests, phpcs, phpstan on PRs.
+* [ ] Lint and build JS/CSS in CI.
+
+### Release & Docs
+
+* [ ] Update plugin header and `readme.txt`.
+* [ ] Create `CHANGELOG.md` and release notes.
+* [ ] Build distribution ZIP and tag a release.
+* [ ] Document dev setup and QA steps in `README.md`.
+
+### Maintenance
+
+* [ ] Schedule dependency updates and PHP/WP compatibility checks.
+* [ ] Track security updates & prepare hotfix process.
+
+---
+
+## Recommended Repo Structure
+
+```
+my-wp-plugin/
+├─ .github/
+│  ├─ workflows/ci.yml
+│  ├─ PULL_REQUEST_TEMPLATE.md
+│  └─ ISSUE_TEMPLATE.md
+├─ assets/
+│  ├─ js/
+│  └─ css/
+├─ build/
+├─ src/
+│  ├─ Admin/
+│  ├─ Frontend/
+│  ├─ API/
+│  ├─ Core/
+│  └─ Helpers/
+├─ tests/
+├─ vendor/
+├─ composer.json
+├─ package.json
+├─ phpunit.xml.dist
+├─ phpcs.xml
+├─ .gitignore
+├─ CONTRIBUTING.md
+├─ CHANGELOG.md
+├─ README.md
+└─ my-plugin.php
+```
+
+---
+
+## Starter files (copy into your repo)
+
+### `.github/workflows/ci.yml`
+
+```yaml
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: mbstring, intl
+      - name: Install composer
+        run: composer install --no-interaction --prefer-dist
+      - name: Run PHPCS
+        run: vendor/bin/phpcs -p
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit --configuration phpunit.xml.dist --testsuite unit
+```
+
+### `composer.json` (minimal)
+
+```json
+{
+  "name": "vendor/my-wp-plugin",
+  "type": "wordpress-plugin",
+  "autoload": {
+    "psr-4": {
+      "Vendor\\MyPlugin\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "squizlabs/php_codesniffer": "*",
+    "phpstan/phpstan": "^1.10"
+  }
+}
+```
+
+### `my-plugin.php` (plugin header + bootstrap)
+
+```php
+<?php
+/**
+ * Plugin Name: My WP Plugin
+ * Description: Short description.
+ * Version: 0.1.0
+ * Author: You
+ * Text Domain: my-wp-plugin
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Vendor\MyPlugin\Core\Plugin;
+
+function my_wp_plugin_init() {
+  $plugin = Plugin::bootstrap( __FILE__ );
+  $plugin->run();
+}
+add_action( 'plugins_loaded', 'my_wp_plugin_init' );
+```
+
+### `src/Core/Plugin.php` (minimal bootstrap)
+
+```php
+<?php
+namespace Vendor\MyPlugin\Core;
+
+class Plugin {
+  protected string $file;
+
+  public static function bootstrap( string $file ): self {
+    return new self( $file );
+  }
+
+  public function __construct( string $file ) {
+    $this->file = $file;
+  }
+
+  public function run(): void {
+    // register hooks and services here
+    add_action( 'admin_menu', [ $this, 'register_admin' ] );
+  }
+
+  public function register_admin(): void {
+    add_menu_page( 'My Plugin', 'My Plugin', 'manage_options', 'my-plugin', [ $this, 'admin_page' ] );
+  }
+
+  public function admin_page(): void {
+    echo '<div class="wrap"><h1>My Plugin</h1></div>';
+  }
+}
+```
+
+### `phpunit.xml.dist`
+
+```xml
+<?xml version="1.0"?>
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>./tests/unit</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
+```
+
+### `phpcs.xml` (WordPress ruleset)
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="MyPlugin Rules">
+  <description>PHPCS rules for MyPlugin</description>
+  <rule ref="WordPress" />
+</ruleset>
+```
+
+### `CONTRIBUTING.md` (short)
+
+```
+# Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/name`
+3. Commit and push your branch
+4. Open a PR with description, testing steps and link to issue
+
+PRs must pass CI and include tests for new logic.
+```
+
+### `.gitignore`
+
+```
+/vendor/
+/node_modules/
+/.idea/
+/.vscode/
+/build/
+```
+
+---
+
+## Quick developer setup (add this to README)
+
+1. `composer install`
+2. `npm install` (if you use frontend build)
+3. `cp .env.example .env` (if env used)
+4. Run tests: `vendor/bin/phpunit`
+
+---
+
+## TL;DR — What to include in every plugin repo
+
+* Spec doc (English)
+* One‑page checklist (this file)
+* PSR‑4 structure with `src/`
+* CI that runs phpcs, phpstan, phpunit
+* CONTRIBUTING & PR/Issue templates
+* CHANGELOG.md and release tags
+
+---
+
+If you want, I can generate these files as actual files in a zip you can download, or create the initial commit tree for you. Tell me which plugin slug you want and I’ll scaffold the files with your namespace and header values.
