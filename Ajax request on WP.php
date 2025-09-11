@@ -58,8 +58,6 @@ wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array(
 // ================================================== 
 // Step 4 : Here the callback function will perform operations & handover the result to that ajax request , from wher that request came from 
 // ================================================== 
-add_action('wp_ajax_rs_actions', 'clbc_function_to_perform_oprations');
-// add_action('wp_ajax_{action name of ajax request }', 'functionName');
 
 function clbc_function_to_perform_oprations() {
     $nonce_verified = wp_verify_nonce($_POST['_ajax_nonce'], 'title_example');
@@ -73,10 +71,25 @@ function clbc_function_to_perform_oprations() {
 
     wp_die(); // All ajax handlers die when finished
 }
-?>
+
+add_action('wp_ajax_rs_actions', 'clbc_function_to_perform_oprations');        //for logged in users
+add_action('wp_ajax_noprev_rs_actions', 'clbc_function_to_perform_oprations'); //for non logged in users 
+// add_action('wp_ajax_{action name of ajax request }', 'functionName');
+
 // ================================================== 
 // Step 5 : This is wher ajax is showing the result
 // ================================================== 
 <div class="result">
     <!-- Result will be displayed here through Ajax -->
 </div>
+
+
+// ================================================== 
+// Ajax request can be tested via Postmen is nonce is not userd,  "always use nonce"
+// ================================================== 
+//it works for nonprev/ non logged in users only and this is how hackers can trigger your ajax request if "nonce" is not used
+    
+POST/GET
+http://yoursite.com/wp-admin/admin-ajax.php
+action   action_name    
+
