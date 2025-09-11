@@ -1,0 +1,33 @@
+
+🔑 WordPress Nonce — Quick Notes
+What is a Nonce?
+•	Nonce = Number used once (WordPress security token).
+•	Protects against CSRF attacks (forged requests).
+•	Short-lived, user-specific, action-specific string.
+________________________________________
+Workflow
+1.	Create nonce in PHP
+2.	$nonce = wp_create_nonce('my_action');
+3.	Send nonce to JS
+4.	wp_localize_script('my-js', 'my_obj', [
+5.	    'ajax_url' => admin_url('admin-ajax.php'),
+6.	    'nonce'    => $nonce,
+7.	]);
+8.	Use nonce in AJAX request
+9.	$.post(my_obj.ajax_url, {
+10.	    action: 'my_action',
+11.	    security: my_obj.nonce
+12.	});
+13.	Verify nonce in PHP
+14.	check_ajax_referer('my_action', 'security');
+________________________________________
+Key Facts
+•	✅ Valid for 24 hours (2 × 12-hour “ticks”).
+•	✅ Different for every user.
+•	✅ Not stored in DB — generated from: user ID + action + time + secret keys.
+•	❌ Invalid requests die with “Invalid nonce” / -1.
+________________________________________
+Debug Tips
+•	If nonce fails → check key names match in wp_create_nonce() and check_ajax_referer().
+•	If it expires → refresh page or regenerate dynamically.
+
