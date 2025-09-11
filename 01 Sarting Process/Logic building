@@ -1,0 +1,12 @@
+
+1) Data flow
+2) Todo app building ( CRUD , Search, Filters)
+3) Build your confidance (Don't code blindly)
+
+🧠 Logic Building Mindset
+Whenever you write jQuery for WP:
+    Step 1: Where does the flow start? (event)
+    Step 2: What data do I need? (input values, IDs, etc.)
+    Step 3: Who do I send it to? (AJAX → PHP action)
+    Step 4: What responses can I expect? (true/false, success/error)
+    Step 5: How should the UI react? (show/hide, add class, display message)
