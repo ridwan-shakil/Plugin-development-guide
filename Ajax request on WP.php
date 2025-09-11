@@ -41,6 +41,11 @@ wp_enqueue_script('ajax-script', plugins_url('options_api.js', __FILE__), array(
 // ================================================== 
 // Step 3 : Ajax request in wordpress
 // ================================================== 
+// 3 ways of ajax request:
+//     $.ajax() = Mostly used, full control, advanced features.
+//     $.post() = Shortcut for $.ajax() with method = POST.
+//     $.get()  = Shortcut for $.ajax() with method = GET.
+
 //jqAjaxWp
  $.post(my_ajax_obj.ajax_url, {      //POST request
                 _ajax_nonce: my_ajax_obj.nonce, //nonce
