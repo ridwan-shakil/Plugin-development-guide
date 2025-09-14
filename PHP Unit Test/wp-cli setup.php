@@ -1,6 +1,9 @@
 =================== setup wp-cli globally (One time setup per pc) ======================
 Doc: https://make.wordpress.org/cli/handbook/guides/installing/#installing-via-composer
 
+NOTE: use cmd OR powershell , Git may not recognize those commands 
+
+--------------------------------------
 Installing on Windows :
 
 Install via composer as described above or use the following method.
