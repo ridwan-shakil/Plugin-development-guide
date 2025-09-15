@@ -1,0 +1,41 @@
+Core Concepts (CMD vs PowerShell)
+
+CMD        = old-school Windows command line. Simple, fast, but limited.
+PowerShell = modern, more powerful, has scripting, works with .NET objects, and is used a lot in automation (also what WP-CLI recommends on Windows).
+
+👉 As a WordPress dev, you’ll use both sometimes, but PowerShell is more future-proof.
+
+==========================================================
+press  Wind     type powershell, hit Enter. OR
+Press  Win + R, type powershell, hit Enter.  
+
+
+🔹 Navigation & Info
+    •	pwd → Show current directory (where you are).
+    •	cd path\to\folder → Change directory.
+    •	cd .. → Go up one folder.
+    •	ls → List files and folders.
+    •	clear → Clear the screen.
+________________________________________
+🔹 Files & Folders
+    •	mkdir foldername → Create a new folder.
+    •	echo "text" > file.txt → Create a file with text.
+    •	type file.txt (CMD) / cat file.txt (PowerShell) → Show file content.
+    •	del file.txt → Delete file.
+    •	rm -r foldername → Delete folder with contents.
+________________________________________
+🔹 PHP & Composer
+    •	php -v → Check PHP version.
+    •	php file.php → Run a PHP file.
+    •	composer install → Install dependencies.
+    •	composer dump-autoload → Regenerate autoload files.
+________________________________________
+🔹 WordPress CLI (WP-CLI)
+    •	wp --info → Check WP-CLI setup.
+    •	wp plugin list → Show all plugins.
+    •	wp plugin activate my-plugin → Activate a plugin.
+    •	wp plugin deactivate my-plugin → Deactivate a plugin.
+    •	wp scaffold plugin my-plugin → Generate plugin boilerplate.
+    •	wp db query "SQL" → Run database query.
+________________________________________
+👉 With just these ~20 commands, you can do 95% of what you need in terminal as a WP plugin dev.
