@@ -1,4 +1,4 @@
-pc needs: php, composer, npm, phpunit, wp-cli, git
+pc needs: php, mysql, composer, phpunit, wp-cli, git
 
 # ============================== 2) How to do unit testing of a WordPress plugin — Step by step =======================
 <?php
@@ -17,6 +17,8 @@ pc needs: php, composer, npm, phpunit, wp-cli, git
 
 ```bash
     composer require --dev phpunit/phpunit:"^9.6"     ## always use latest supported version, not latest phpunit 
+OR 
+    composer require --dev phpunit/phpunit:^9.6 --with-all-dependencies     ##downgrade/upgrade whatever else is necessary to make it compatible.
 
 ```
 
