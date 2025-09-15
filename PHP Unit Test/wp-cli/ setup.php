@@ -39,7 +39,7 @@ Add new entry
 Click New → paste:
 
 C:\wp-cli
-
+D:\Xampp\mysql\bin     ## Mysql is also needed
 
 Click OK to save.
 
