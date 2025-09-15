@@ -51,6 +51,10 @@ If you can’t use WP-CLI, you can manually copy the WP test suite bootstrap and
 Run the installer script (edit DB creds accordingly):
 
 ```bash
+    
+composer require --dev wp-phpunit/wp-phpunit:^6.8 --with-all-dependencies
+mysql -u root -e "SHOW DATABASES;"`
+    OR (old)
 bash bin/install-wp-tests.sh wordpress_test root '' localhost latest
 ```
 
