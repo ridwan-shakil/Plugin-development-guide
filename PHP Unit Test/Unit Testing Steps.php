@@ -1,4 +1,4 @@
-pc needs: php, composer, npm, phpunit, wp-cli, 
+pc needs: php, composer, npm, phpunit, wp-cli, git
 
 # ============================== 2) How to do unit testing of a WordPress plugin — Step by step =======================
 <?php
@@ -20,6 +20,10 @@ pc needs: php, composer, npm, phpunit, wp-cli,
 
 ```
 
+## reset everything if goes wrong 
+    del composer.lock
+    rmdir vendor -Recurse -Force
+    
 > Tip: check the PHPUnit major version compatibility with your PHP version (e.g., PHPUnit 9 for PHP 7.3+ / 8.x / 8.1+ depending on releases).
 
 ---
