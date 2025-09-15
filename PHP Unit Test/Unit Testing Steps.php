@@ -1,10 +1,12 @@
+pc needs: php, composer, npm, phpunit, wp-cli, 
+
 # ============================== 2) How to do unit testing of a WordPress plugin — Step by step =======================
 <?php
 > Use this as a small checklist you can paste into your plugin repo README or a `TESTING.md` file.
 
 ## Prerequisites
 
-* PHP (version compatible with your PHPUnit version).
+* PHP (version compatible with your PHPUnit version). | wp unit test does not supports latest php unit . 
 * Composer.
 * MySQL (or MariaDB) for the test DB.
 * WP-CLI (optional but helpful) and `wp` command for scaffolding. If you dont have it, you can still set up tests manually.
@@ -14,7 +16,8 @@
 ## Step 1 — Add PHPUnit to dev dependencies
 
 ```bash
-composer require --dev phpunit/phpunit
+    composer require --dev phpunit/phpunit:"^9.6"     ## always use latest supported version, not latest phpunit 
+
 ```
 
 > Tip: check the PHPUnit major version compatibility with your PHP version (e.g., PHPUnit 9 for PHP 7.3+ / 8.x / 8.1+ depending on releases).
