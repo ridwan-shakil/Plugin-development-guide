@@ -1,0 +1,31 @@
+Rule of thumb:  
+      Use   up -d   to start
+      Use   down    to stop
+      Use   exec    to enter
+
+docker compose up -d        // Start all services in background (WordPress, MySQL, phpMyAdmin)
+docker compose down         // Stop and remove containers, but keep volumes (DB data)
+docker compose build        // Rebuild containers if you changed Dockerfile or dependencies
+docker compose restart      // Restart all services
+
+docker ps                   // List running containers
+docker ps -a                // List all containers (including stopped ones)
+
+docker logs <container_id>  // Show logs of a container
+docker logs -f <container>  // Follow logs in real time (like tail -f)
+
+docker exec -it <container> bash   // Open a shell inside the container
+docker exec -it <container> sh     // Alternative shell if bash not available
+
+docker images              // List all downloaded images
+docker image rm <image_id> // Remove an image
+
+docker volume ls           // List all volumes (your DB data lives here)
+docker volume rm <volume>  // Remove a volume (wipes DB data)
+  
+---------------------------- Special for WordPress setup
+docker compose up --build   // Force rebuild and restart (if you changed config)
+docker exec -it wordpress bash   // Jump inside the WP container (replace "wordpress" with your service name)
+
+
+docker network ls          // Show networks (Docker Compose makes one automatically)
