@@ -1,5 +1,8 @@
 pc needs: php, mysql, composer, phpunit, wp-cli, git
 
+win> system environment > 
+        path > add php path , sql path , wp-cli 
+        TMP & temp > may nedd to adjust path
 # ============================== 2) How to do unit testing of a WordPress plugin — Step by step =======================
 <?php
 > Use this as a small checklist you can paste into your plugin repo README or a `TESTING.md` file.
