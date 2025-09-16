@@ -1,2 +1,3 @@
 install Docker if not available on your machine
 enable virtualization from bios 
+WSL (Windows subsystem for linus)
