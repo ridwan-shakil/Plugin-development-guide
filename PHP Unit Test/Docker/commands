@@ -8,6 +8,16 @@ docker compose down         // Stop and remove containers, but keep volumes (DB 
 docker compose build        // Rebuild containers if you changed Dockerfile or dependencies
 docker compose restart      // Restart all services
 
+-------------------------------------------
+docker pull image-name       // pull the image from docker hub
+------
+docker run image-name        // Create a container from image & runs it
+docker run -it image-name    // "    "  & open containers terminal
+-----
+docker start image-name      // Starts existing container
+docker stop image-name       // Stop running container
+-------------------------------------------
+
 docker ps                   // List running containers
 docker ps -a                // List all containers (including stopped ones)
 
