@@ -1,0 +1,23 @@
+FROM wordpress:cli
+
+# Switch to root to install system packages
+USER root
+
+# Install dependencies
+RUN apk add --no-cache \
+    unzip \
+    git \
+    wget \
+    bash
+
+# Install Composer
+RUN wget https://getcomposer.org/installer -O composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm composer-setup.php
+
+# Install PHPUnit
+RUN wget -O /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-9.phar \
+    && chmod +x /usr/local/bin/phpunit
+
+# Switch back to default user (www-data)
+USER www-data
