@@ -16,7 +16,7 @@ docker compose restart      // Restart all services
 -------------------------------------------
 docker pull image-name       // pull the image from docker hub
 ------
-docker run image-name        // Create a container from an image & runs it
+docker run image-name        // Create a container from an image & runs it  (for multiple images = docker compose up -d)
 docker run -it image-name    // "    "  & open containers terminal
 -----
 docker start image-name      // Starts existing container
