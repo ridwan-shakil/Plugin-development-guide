@@ -1,4 +1,5 @@
 <?php
+open docker desktop app  // Docker desktop must be running while working with Docker
 //🔹 Step 1: Create a test database
 docker compose exec db mysql -u root -ppassword -e "CREATE DATABASE wordpress_test;"
 
