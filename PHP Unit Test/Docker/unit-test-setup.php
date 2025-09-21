@@ -7,6 +7,7 @@ docker compose exec db mysql -u root -ppassword -e "CREATE DATABASE wordpress_te
 docker compose run --rm cli wp scaffold plugin-tests unit-test 
   
 ;//🔹 Step 3: Install the WordPress test suite [ Run the installer script. This will download WordPress core + testing framework into /tmp/ inside the container, and prepare your wordpress_test DB.
+// bin/install-wp-tests.sh <db-name> <db-user> <db-pass> [db-host] [wp-version]
 docker compose run --rm cli bash bin/install-wp-tests.sh wordpress_test root password
 
 //🔹 Step 4: Install dependencies [ Still inside the container, install PHPUnit + dependencies for your plugin:
