@@ -14,3 +14,18 @@ docker compose run --rm cli composer install
 
 //🔹 Step 5: Run tests [ Finally, run PHPUnit: ]
 docker compose run --rm cli vendor/bin/phpunit
+
+
+;// if edit docker-compose.yml than a restart may needed
+docker compose down
+docker compose up -d --build
+
+
+;// WordPress test suite
+# inside cli container
+svn co https://develop.svn.wordpress.org/tags/$(wp core version)/tests/phpunit/ /tmp/wordpress-tests
+
+cp /tmp/wordpress-tests/wp-tests-config-sample.php /tmp/wordpress-tests/wp-tests-config.php
+nano /tmp/wordpress-tests/wp-tests-config.php
+
+  
