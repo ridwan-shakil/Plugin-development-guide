@@ -12,6 +12,8 @@ docker compose run --rm cli bash bin/install-wp-tests.sh wordpress_test root pas
 
 //🔹 Step 4: Install dependencies [ Still inside the container, install PHPUnit + dependencies for your plugin:
 docker compose run --rm cli composer install
+   composer require --dev yoast/phpunit-polyfills
+
 
 //🔹 Step 5: Run tests [ Finally, run PHPUnit: ]
 docker compose run --rm cli vendor/bin/phpunit
