@@ -21,14 +21,35 @@ docker compose run --rm cli vendor/bin/phpunit
 
 ;// if edit docker-compose.yml than a restart may needed
 docker compose down
-docker compose up -d --build
+docker compose up -d --build # rebuild image
+
+;// ==============================
+docker compose up -d
+
+;## Enter CLI
+docker compose exec cli bash
+cd /var/www/src/wp-content/plugins/unit-test-three
+
+;## Setup tests (first time)
+wp scaffold plugin-tests unit-test-three     ;# only if not scaffolded
+bash bin/install-wp-tests.sh wordpress_test wordpress password db_test latest    ;//Install WP test suite (important: run inside cli)
+
+// ✅ Run composer init once per project if there’s no composer.json
+// ✅ Then run composer require --dev yoast/phpunit-polyfills
+// ✅ No need to run composer install immediately after require
+// ✅ Others who clone your repo will run composer install (once) to get your dev dependencies.
+composer init
+composer require --dev yoast/phpunit-polyfills
+
+;// ## Run tests
+phpunit
 
 
-;// WordPress test suite
-# inside cli container
-svn co https://develop.svn.wordpress.org/tags/$(wp core version)/tests/phpunit/ /tmp/wordpress-tests
+;// ============= Notes ==============
+// Dockerfile.cli 
+    # Installs Subversion + unzip + less + bash + curl (Alpine uses apk)
+    # Installs PHPUnit (fixed version) inside container globally, so don't need to require it in composer ,unless you prefer to vendor-lock a PHPUnit version per-plugin (then you’d run vendor/bin/phpunit instead of the global one).
 
-cp /tmp/wordpress-tests/wp-tests-config-sample.php /tmp/wordpress-tests/wp-tests-config.php
-nano /tmp/wordpress-tests/wp-tests-config.php
 
-  
+
+
