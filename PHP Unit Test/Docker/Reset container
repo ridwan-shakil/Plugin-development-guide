@@ -1,0 +1,5 @@
+docker compose down
+docker volume rm docker-wp-installation_db_test_data #reset Db
+docker compose up -d
+docker compose exec cli bash
+mysql --host=db_test --user=wordpress --password=password -e "SHOW DATABASES;"
