@@ -6,7 +6,8 @@
 Use cases :
 ---------------
 1) Using only built-in autoloader 
-2) to load 3rd party libraries without manually downloading them, include and manage the external libraries your plugin needs. This will help ensure that your plugin's dependencies are well-organized and compatible with each other.
+2) to load 3rd party libraries without manually downloading them, include and manage the external libraries 
+   your plugin needs. This will help ensure that your plugin's dependencies are well-organized and compatible with each other.
 
 ---------------
 How to use :
@@ -17,7 +18,7 @@ Composer.json is the main DNA where we will make changes according to our needs.
 The vendor  folder will generate automatically, so don't touch it 
 After making changes on composer.json and running the code to regenerate the vendor file =  composer dump-autoload
 file_name.php and class name  should have the same name. 
-Namespace will have the same name as the folder name in which the file exists 
+Namespace will have the same name as the "folder/location" in which the file exists 
 
 Write this code in the main plugin.php file 
       if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
