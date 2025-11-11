@@ -1,4 +1,6 @@
+* **3_how-to-use-and-get-approved.md** — How to run checks, fix common issues, and a pre-submission checklist to maximize chances of *first-time acceptance*.
 
+  
 # 3) `3_how-to-use-and-get-approved.md`
 
 ```
