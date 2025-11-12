@@ -36,7 +36,7 @@ composer global require \
   phpcsstandards/phpcsutils:"*"
 ```
 
-# This installs globally:
+## This installs globally:
 •	✅ PHP_CodeSniffer (phpcs, phpcbf)
 •	✅ WordPress Coding Standards (wpcs)
 •	✅ PHPCompatibility + PHPCompatibilityWP
@@ -45,7 +45,7 @@ composer global require \
 💡 Using :* allows Composer to pick the latest compatible versions automatically.
 ________________________________________
 
-#📁 2. Register Standards with PHPCS
+## 📁 2. Register Standards with PHPCS
 Set the global installed paths for all coding standards.
 🪟 Windows Example
 phpcs --config-set installed_paths `
@@ -56,7 +56,7 @@ C:\Users\<YourUser>\AppData\Roaming\Composer\vendor\phpcompatibility\phpcompatib
 C:\Users\<YourUser>\AppData\Roaming\Composer\vendor\phpcsstandards\phpcsextra,\
 C:\Users\<YourUser>\AppData\Roaming\Composer\vendor\phpcsstandards\phpcsutils"
 
-#🍎 macOS / Linux Example
+## 🍎 macOS / Linux Example
 phpcs --config-set installed_paths \
   ~/.composer/vendor/wp-coding-standards/wpcs,\
   ~/.composer/vendor/phpcompatibility/php-compatibility,\
@@ -66,7 +66,7 @@ phpcs --config-set installed_paths \
   ~/.composer/vendor/phpcsstandards/phpcsutils
 ________________________________________
 
-#🧩 3. Set Default Standard
+## 🧩 3. Set Default Standard
 Make PHPCS use WordPress + PHPCompatibility by default:
 phpcs --config-set default_standard WordPress-Extra,PHPCompatibilityWP
 Check configuration:
