@@ -1,5 +1,10 @@
 * **3_how-to-use-and-get-approved.md** — How to run checks, fix common issues, and a pre-submission checklist to maximize chances of *first-time acceptance*.
 
+## Prerequsits
+1) coding standard setup globally (Main engine)
+2) VS code extentions (For realtime error showing & fixing)
+3) windown environment veriable path setup (Must do once)
+4) 
   
 # 3) `3_how-to-use-and-get-approved.md`
 
