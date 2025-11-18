@@ -16,7 +16,15 @@ Xdebug is a PHP extension that enables step‑by‑step debugging, breakpoints, 
 
 ---
 
-# 2. Install Xdebug
+## For Localwp environment :
+  * just turn on Xdebug from "localwp > yoursite"
+  * `.vscode/launch.json` (Auto create : vs code> debug icon > click : create a launch.json file)
+  * add breakpoints into php code and run
+  * more details are given in setp 5
+
+
+
+# 2. Install Xdebug ( Skip if you'r using "LocalWP" )
 
 ## **2.1 Check if Xdebug Is Installed**
 
@@ -30,7 +38,7 @@ If you see **with Xdebug**, it's already installed.
 
 If not, proceed below.
 
-## **2.2 Install Xdebug Manually**
+## **2.2 Install Xdebug Manually**  ( Skip if you'r using "LocalWP" )
 
 Use:
 
@@ -42,7 +50,7 @@ Or download the right version from: [https://xdebug.org/download](https://xdebug
 
 ---
 
-# 3. Configure `php.ini`
+# 3. Configure `php.ini` ( Skip if you'r using "LocalWP" & trun On Xdubug from LocalWP)
 
 Add the following inside your `php.ini`:
 
@@ -76,7 +84,7 @@ Extension: PHP Debug (by xdebug)
 
 Create a debug config:
 
-## `.vscode/launch.json`
+## `.vscode/launch.json` (Auto create : vs code> debug icon > click : create a launch.json file)
 
 ```json
 {
