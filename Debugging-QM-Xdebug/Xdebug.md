@@ -2,6 +2,16 @@
 
 This document provides a clean, structured walkthrough for installing, configuring, and using Xdebug to debug WordPress plugins in VS Code.
 
+
+
+## ## For Localwp environment :
+  * just turn on Xdebug from "localwp > yoursite"
+  * `.vscode/launch.json` (Auto create : vs code> debug icon > click : create a launch.json file)
+  * add breakpoints into php code and run
+  * more details are given in setp 5
+
+
+
 ---
 
 ## ## 1. Overview
@@ -15,14 +25,6 @@ Xdebug is a PHP extension that enables step‑by‑step debugging, breakpoints, 
 * Follow conditional logic and execution flow
 
 ---
-
-## For Localwp environment :
-  * just turn on Xdebug from "localwp > yoursite"
-  * `.vscode/launch.json` (Auto create : vs code> debug icon > click : create a launch.json file)
-  * add breakpoints into php code and run
-  * more details are given in setp 5
-
-
 
 # 2. Install Xdebug ( Skip if you'r using "LocalWP" )
 
