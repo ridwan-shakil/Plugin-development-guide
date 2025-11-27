@@ -1,5 +1,9 @@
 Your work is only to create a .pot file 
 
+<!-- Just run this command inside your plugin -->
+wp i18n make-pot .
+
+
 There are 3 type of files 
 one .pot file 
 one .po file for every language 
