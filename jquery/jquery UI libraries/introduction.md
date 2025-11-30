@@ -3,6 +3,8 @@ eg:
 ```script
 wp_enqueue_script( 'jquery-ui-datepicker' );
 ```
+& your jquery file will dependent to this ui library . { ..... array( 'jquery', 'jquery-ui-datepicker' ), version }
+
 ## Core & Interactions
 ```script
 •	jquery-ui-core
