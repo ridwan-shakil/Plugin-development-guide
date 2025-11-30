@@ -28,7 +28,7 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 •	jquery-ui-tabs
 •	jquery-ui-tooltip
 ```
-##Effects 
+## Effects 
 ```
 •	jquery-effects-core
 •	jquery-effects-blind
@@ -39,11 +39,10 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 •	jquery-effects-fade
 •	jquery-effects-fold
 •	jquery-effects-highlight
-```
 •	jquery-effects-pulsate
 •	jquery-effects-scale
 •	jquery-effects-shake
 •	jquery-effects-size
 •	jquery-effects-slide
 •	jquery-effects-transfer
-
+```
