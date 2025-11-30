@@ -1,9 +1,0 @@
-// enqueing is mendetory  eg:   wp_enqueue_script( 'jquery-ui-datepicker' );
-
-jquery-ui-datepicker
-jquery-ui-sortable
-jquery-ui-draggable
-jquery-ui-dialog
-jquery-ui-slider
-jquery-ui-autocomplete
-jquery-ui-accordion
