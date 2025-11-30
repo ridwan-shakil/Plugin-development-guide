@@ -4,7 +4,7 @@ eg:
 wp_enqueue_script( 'jquery-ui-datepicker' );
 ```
 ## Core & Interactions
-
+```script
 •	jquery-ui-core
 •	jquery-ui-widget
 •	jquery-ui-mouse
@@ -13,8 +13,9 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 •	jquery-ui-draggable
 •	jquery-ui-resizable
 •	jquery-ui-selectable
-
+```
 ## Widgets 
+```script
 •	jquery-ui-accordion
 •	jquery-ui-autocomplete
 •	jquery-ui-button
@@ -26,8 +27,9 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 •	jquery-ui-spinner
 •	jquery-ui-tabs
 •	jquery-ui-tooltip
-
+```
 ##Effects 
+```
 •	jquery-effects-core
 •	jquery-effects-blind
 •	jquery-effects-bounce
@@ -37,6 +39,7 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 •	jquery-effects-fade
 •	jquery-effects-fold
 •	jquery-effects-highlight
+```
 •	jquery-effects-pulsate
 •	jquery-effects-scale
 •	jquery-effects-shake
