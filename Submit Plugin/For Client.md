@@ -1,0 +1,8 @@
+
+### --------------- Plugin for Clients -----------------
+
+1. Header requires ( update uri : https:// pluging update url ) 
+
+
+
+
