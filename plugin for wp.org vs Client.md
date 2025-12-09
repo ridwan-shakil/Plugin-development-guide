@@ -1,12 +1,12 @@
-# ===============================
-# Plugin for Clients
-# ===============================
+
+### --------------- Plugin for Clients -----------------
+
 1. Header requires ( update uri : https:// pluging update url ) 
 
 
-# ===============================
-# Plugin for wordpress.org
-# ===============================
+
+### ------------- Plugin for wordpress.org ---------------
+
 ## Standards
   1. plugin name must be unique
   2. correct readme.txt file
@@ -21,13 +21,16 @@ phpcbf .
 phpcs .
 wpcs
 ```
+
+
 ## Test your plugin with this wp plugin: Plugin Check (PCP)
    tests if a plugin meets WordPress.org standards, flags violations, and helps speed up approval, even if not for the directory.
 
 
-# --------------------------------
-## Submit plugin for review
-# --------------------------------
+
+
+### ------------- Submit plugin for review ---------------
+
 ## If any issue arrise
   1) solve all issues carefully
   2) resubmit the solved plugin
@@ -35,8 +38,8 @@ wpcs
   
 
 
-# --------------------------------
-## After plugin haave approved
-# --------------------------------
+
+### ------------ After plugin haave approved -------------
+
 ## Upload plugin via SVN
   1) Download SVN if not yeat
