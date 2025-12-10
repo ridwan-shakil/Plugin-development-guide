@@ -1,3 +1,48 @@
+### Visualizing the pattern
+
++----------------+
+|   Context      |  <-- Your plugin feature that needs exporting
++----------------+
+| - strategy     |
+| + setStrategy()|
+| + exportData() |
++----------------+
+        |
+        v
++----------------+
+| Strategy       |  <-- Interface / contract
++----------------+
+| + export($data)|
++----------------+
+        ^
+        |
++-------------------+   +------------------+   +------------------+
+| JsonExport        |   | CsvExport        |   | TxtExport        |
++-------------------+   +------------------+   +------------------+
+| + export($data)   |   | + export($data)  |   | + export($data)  |
++-------------------+   +------------------+   +------------------+
+
+
+Context: Your plugin code calling export
+
+Strategy: Interface that all exporters follow
+
+Concrete Strategies: Each format (JSON, CSV, TXT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### How to know where to use Strategy Pattern?
   There are three clear signals you can look for.
   
