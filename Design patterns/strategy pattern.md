@@ -1,5 +1,5 @@
 ### Visualizing the pattern
-
+```
 +----------------+
 |   Context      |  <-- Your plugin feature that needs exporting
 +----------------+
@@ -21,7 +21,7 @@
 +-------------------+   +------------------+   +------------------+
 | + export($data)   |   | + export($data)  |   | + export($data)  |
 +-------------------+   +------------------+   +------------------+
-
+```
 
 Context: Your plugin code calling export
 
