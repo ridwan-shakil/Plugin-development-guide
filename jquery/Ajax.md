@@ -1,7 +1,14 @@
 ### Notes
-  1) use "debounce" method to reduce ajax calls (increase ajax performance)
+  ## use "debounce" method to reduce ajax calls (increase ajax performance)
+			saving data .on("blur", => {} ) is not enough, as it may not fire always,
+			so using "debounce" method .on("input", => {})
+	------ logic -------
+			on every input 'debounce' resets
+			new 'setTimeout' / 'debounce'  starts
+			it user stops typing for a while then ajax fires to save the value
 
-Example : save a input fields value via ajax call, ajax dont' fire untill user stops writing
+
+## Example : save a input fields value via ajax call, ajax dont' fire untill user stops writing
 ```
     let titleTimer = null;
 		let lastSavedTitle = null;
