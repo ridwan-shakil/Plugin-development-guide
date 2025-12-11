@@ -1,4 +1,4 @@
-### Ajax timing-control methods
+# Ajax timing-control methods
 1) Debounce = Runs after the user stops typing, Useful for input fields, search boxes, autosave
 2) Throttle = allow the function to run at most once every X ms.
 3) requestAnimationFrame = not so usefull
@@ -9,8 +9,8 @@
 
 ## ------- Debounce -------
 
-  # use "Debounce" method to reduce ajax calls (increase ajax performance) 
-  # Runs after the user stops typing, Useful for input fields, search boxes, autosave
+  ### use "Debounce" method to reduce ajax calls (increase ajax performance) 
+  ### Runs after the user stops typing, Useful for input fields, search boxes, autosave
   
 			saving data .on("blur", => {} ) is not enough, as it may not fire always,
 			so using "debounce" method .on("input", => {})
