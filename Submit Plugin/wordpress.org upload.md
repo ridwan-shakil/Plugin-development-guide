@@ -13,7 +13,9 @@ don't run for js files,  eg: phpcs ./includes/
 ```
     phpcbf .
     phpcs .
-Fix issues
+
+# Fix issues
+
     phpcbf --standard=WordPress .
     phpcs --standard=WordPress . 
 ```
