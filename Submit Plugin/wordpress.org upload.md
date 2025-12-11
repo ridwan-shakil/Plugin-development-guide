@@ -9,10 +9,11 @@
 
 
 ## Check coding standards : 
+don't run for js files,  eg: phpcs ./includes/
 ```
 phpcbf .
 phpcs .
-wpcs
+phpcs --standard=WordPress . 
 ```
 
 
