@@ -37,7 +37,7 @@ Most PHP developers refer to the 23 fundamental patterns described in the semina
     Specification pattern, Registry, and Fluent Interface. 
 
 
-#🔹---- Core patterns for WP plugins ---- :
+# ---- Core patterns for WP plugins ---- :
 
           Creational pattern:
                     Singleton
