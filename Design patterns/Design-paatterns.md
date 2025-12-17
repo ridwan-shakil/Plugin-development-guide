@@ -1,4 +1,4 @@
-# The Classic 23 (Gang of Four)
+# ----- The Classic 23  Patterns ---- :
 Most PHP developers refer to the 23 fundamental patterns described in the seminal book Design Patterns: Elements of Reusable Object-Oriented Software. These are categorized into three types: 
 
 ## Creational Patterns (5): Deal with object creation mechanisms.
@@ -35,3 +35,18 @@ Most PHP developers refer to the 23 fundamental patterns described in the semina
     
 ### Other PHP Patterns: 
     Specification pattern, Registry, and Fluent Interface. 
+
+
+#🔹---- Core patterns for WP plugins ---- :
+
+          Creational pattern:
+                    Singleton
+                    Factory
+                    
+          Behavioral pattern: 
+                    Strategy
+                    Observer (Hooks system)
+                    
+          Non-GoF Patterns:
+                    MVC-like separation (not full MVC)
+                    Dependency Injection (lightweight)
