@@ -51,3 +51,8 @@
           - esc_html / esc_attr
 
       
+
+### One rule that will save you years
+    If you delete your View files and the plugin still “works”, your architecture is correct.
+    Views are replaceable.
+    Models and Controllers are not.
