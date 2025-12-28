@@ -5,10 +5,10 @@ NOTES:
 
 
 -----------------
-First write the plugin in english before coding :
-what featurs will be there 
-how the designs will be 
-how the featurs are going to work 
-what technologies are going to be used (if any packages are needed or not)
-when the full plugin is write down perfectly > take approval from client (if it's ok or not )
+## First write the plugin in english before coding :
+      what featurs will be there
+      how the designs will be 
+      how the featurs are going to work 
+      what technologies are going to be used (if any packages are needed or not)
+      when the full plugin is write down perfectly > take approval from client (if it's ok or not )
 
