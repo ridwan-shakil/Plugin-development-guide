@@ -1,5 +1,5 @@
 
-## Github action can run auto checks for phpcs/wpcs etc 
+## Github action can run auto checks for phpcs/wpcs etc on pull requests
 ### create an empty action 
 ### pest this file : wp-quality-checks.yml
 
@@ -9,9 +9,9 @@ name: WordPress Plugin Quality Checks
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, develop ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, develop ]
 
 jobs:
   quality-checks:
