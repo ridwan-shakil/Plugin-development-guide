@@ -44,26 +44,28 @@ ________________________________________
     git checkout -b feature/task-description
 
 ### Branch naming conventions:
-    •	feature/* – new features
-    •	bugfix/* – bug fixes
-    •	hotfix/* – critical production fixes
+•	feature/* – new features
+•	bugfix/* – bug fixes
+•	hotfix/* – critical production fixes
 ________________________________________
 
 ## Coding Standards : All code must follow WordPress standards.
-    PHP
-        •	Follow WordPress PHP Coding Standards
-        •	Use OOP and existing architecture
-        •	No deprecated WordPress or PHP functions
-        •	No PHP notices or warnings with WP_DEBUG enabled
-    Security
-        •	Sanitize all input
-        •	Validate data before saving
-        •	Escape all output
-        •	Use nonces and capability checks where required
-    JavaScript & Assets
-        •	Use jQuery unless specified otherwise
-        •	Enqueue scripts/styles properly
-        •	Load assets conditionally
+PHP
+    •	Follow WordPress PHP Coding Standards
+    •	Use OOP and existing architecture
+    •	No deprecated WordPress or PHP functions
+    •	No PHP notices or warnings with WP_DEBUG enabled
+    
+Security
+    •	Sanitize all input
+    •	Validate data before saving
+    •	Escape all output
+    •	Use nonces and capability checks where required
+    
+JavaScript & Assets
+    •	Use jQuery unless specified otherwise
+    •	Enqueue scripts/styles properly
+    •	Load assets conditionally
         
 ________________________________________
 ## Commit Message Guidelines: 
@@ -78,9 +80,9 @@ Commits must be small, logical, and descriptive.
     chore: refactor admin settings class
     
 ### Avoid:
-    •	update
-    •	fix bug
-    •	changes
+•	update
+•	fix bug
+•	changes
 ________________________________________
 ## Testing Requirements : 
 ### Before opening a Pull Request, contributors must run tests locally:
@@ -95,52 +97,53 @@ ________________________________________
 •	CI failures caused by skipped local tests are not acceptable
 ________________________________________
 ## Pull Request Process
-    1.	Push your branch to the repository
-    2.	Open a Pull Request targeting develop
-    3.	Provide a clear PR description:
-        o	What was changed
-        o	Why it was changed
-        o	How to test
+1.	Push your branch to the repository
+2.	Open a Pull Request targeting develop
+3.	Provide a clear PR description:
+    o	What was changed
+    o	Why it was changed
+    o	How to test
+
         
 ### Pull Request Requirements
-    •	CI checks must pass
-    •	Code must meet acceptance criteria
-    •	At least one approval is required
+•	CI checks must pass
+•	Code must meet acceptance criteria
+•	At least one approval is required
 ________________________________________
 ## Code Review Rules
 ### Reviewers will check:
-    •	Logic correctness
-    •	Security & data handling
-    •	Performance impact
-    •	Code readability
-    •	Test coverage
+•	Logic correctness
+•	Security & data handling
+•	Performance impact
+•	Code readability
+•	Test coverage
     
 ## Contributors must:
-    •	Respond to feedback professionally
-    •	Push fixes to the same branch
-    •	Avoid force-pushing unless instructed
+•	Respond to feedback professionally
+•	Push fixes to the same branch
+•	Avoid force-pushing unless instructed
 ________________________________________
 
 ## Merge Rules
-    •	Only approved PRs may be merged
-    •	CI must be green
-    •	Merge method is determined by the project (squash / rebase / merge)
-    •	Contributors do not merge their own PRs unless permitted
+•	Only approved PRs may be merged
+•	CI must be green
+•	Merge method is determined by the project (squash / rebase / merge)
+•	Contributors do not merge their own PRs unless permitted
 ________________________________________
 ## Security & Quality Rules
 ### The following are strictly prohibited:
-    •	Hardcoded credentials
-    •	Debug code or commented junk
-    •	Bypassing CI checks
-    •	Direct commits to protected branches
+•	Hardcoded credentials
+•	Debug code or commented junk
+•	Bypassing CI checks
+•	Direct commits to protected branches
     Security issues should be reported privately to the project maintainer.
 ________________________________________
 
 ## Final Notes
-    •	One task = one branch
-    •	Core logic before UI
-    •	Tests are part of the feature, not optional
-    •	CI passing does not replace acceptance criteria
-    •	Code quality is prioritized over speed
+•	One task = one branch
+•	Core logic before UI
+•	Tests are part of the feature, not optional
+•	CI passing does not replace acceptance criteria
+•	Code quality is prioritized over speed
     
 Thank you for helping keep this plugin stable, secure, and maintainable.
