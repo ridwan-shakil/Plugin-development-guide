@@ -1,66 +1,79 @@
 <?php
+/**
+ * Main Plugin Singleton.
+ *
+ * @since 1.0.0
+ * @package draggable-notes
+ */
+
+namespace Draggable_Notes\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
-final class My_Plugin {
+/**
+ * Main Plugin class to create singleton instance.
+ */
+final class Plugin {
 
-    /**
-     * Single instance
-     *
-     * @var My_Plugin
-     */
-    private static $instance = null;
+	/**
+	 * The single instance of the plugin.
+	 *
+	 * @var Plugin|null
+	 */
+	private static $instance = null;
 
-    /**
-     * Get instance
-     */
-    public static function get_instance() {
-        if ( null === self::$instance ) {
-            self::$instance = new self();
-        }
+	/**
+	 * Get the plugin instance.
+	 *
+	 * @return Plugin
+	 */
+	public static function instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Constructor
-     */
-    private function __construct() {
-        $this->define_constants();
-        $this->init_hooks();
-    }
+	/**
+	 * Plugin constructor.
+	 *
+	 * @return void
+	 */
+	private function __construct() {
+		$this->register_hooks();
+	}
 
-    /**
-     * Define constants
-     */
-    private function define_constants() {
-        define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-        define( 'MY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-    }
+	/**
+	 * Register core hooks.
+	 *
+	 * @return void
+	 */
+	private function register_hooks() {
+		add_action( 'init', array( $this, 'init' ) );
+	}
 
-    /**
-     * Register hooks
-     */
-    private function init_hooks() {
-        add_action( 'init', [ $this, 'init' ] );
-        add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
-    }
+	/**
+	 * Initialize plugin components.
+	 *
+	 * @return void
+	 */
+	public function init() {
+		$loader = new Loader();
+		$loader->run();
+	}
 
-    public function init() {
-        // Init logic
-    }
+	/**
+	 * Prevent cloning.
+	 *
+	 * @return void
+	 */
+	private function __clone() {}
 
-    public function load_textdomain() {
-        load_plugin_textdomain(
-            'my-plugin',
-            false,
-            dirname( plugin_basename( __FILE__ ) ) . '/languages'
-        );
-    }
-
-    private function __clone() {}
-
-    public function __wakeup() {
-        throw new \Exception( 'Cannot unserialize singleton' );
-    }
+	/**
+	 * Prevent unserialization.
+	 *
+	 * @return void
+	 */
+	public function __wakeup() {}
 }
