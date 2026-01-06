@@ -3,7 +3,7 @@
 ## Standards
   1. plugin name must be unique
   2. correct readme.txt file
-  3. generate .pot file by this command :  wp i18n make-pot .
+  3. generate .pot file by this command :  wp i18n make-pot .       ( inside powershell not git bash ) 
   4. translation function is not required
   5. Create 2 banner image & 1 icon
 
