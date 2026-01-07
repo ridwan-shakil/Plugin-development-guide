@@ -43,3 +43,23 @@ function rs_edit_term_delete_transient() {
 }
 // Add the function to the edit_term hook so it runs when categories/tags are edited
 add_action('edit_term', 'rs_edit_term_delete_transient');
+
+
+
+//=============================
+// another example of transient
+//=============================
+// see if the data is available on transient or not 
+$cache_key = 'admin_notes_max_order';
+$max_order = get_transient( $cache_key );
+
+if ( false === $max_order ) {
+	$max_order = (int) $wpdb->get_var( /* query */ );
+	set_transient( $cache_key, $max_order, MINUTE_IN_SECONDS * 5 );
+}
+
+$new_order = $max_order + 1;
+update_post_meta( $post_id, '_admin_notes_order', $new_order );
+
+// update transient
+set_transient( $cache_key, $new_order, MINUTE_IN_SECONDS * 5 );
