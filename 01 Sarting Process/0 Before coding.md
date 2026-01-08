@@ -9,7 +9,7 @@
       Plugin name  =  Can be changed anytime 
 
 
-# Must Remember
+# 🧠 Must Remember
 ## use namespacing to avoid conflicts (eg: brand/****/** )
 ### 1️⃣ But namespace doesn't cover everything, it will cover only 
       Classes
