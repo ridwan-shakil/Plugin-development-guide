@@ -1,12 +1,31 @@
+# Simple setup if pc already has : php, mysql, composer, phpunit, wp-cli, git
+### 1) Open "local wp" > start server > open site shell > Run below commands : 
+        1)  wp scaffold plugin {plugin-slug}
+        2)  cd wp-content/plugins/{plugin-slug}
+        3)  bin/install-wp-tests.sh wp_tests root root localhost 
+        4) composer require --dev phpunit/phpunit
+        5) composer require --dev yoast/phpunit-polyfills
+
+
+# 2) Change the Temp directory
+          1) Win + R > cmd > echo %TEMP%  > copy the result path 
+          2) wordpress-tests-lib/wp-tests-config.php in your Temp directory and edit the constant ABSPATH on line 4 and prepend your %TEMP% directory.
+
+### Documentation : https://dev.to/eliehanna/how-to-run-phpunit-in-a-wordpress-plugin-on-windows-using-localwp-1414
+
+
+
+
+
+----------------------- 
 # pc needs: php, mysql, composer, phpunit, wp-cli, git
 
 ## win> system environment > 
         path > add php path , sql path , wp-cli 
         TMP & temp > may nedd to adjust path
-## 2) How to do unit testing of a WordPress plugin — Step by step 
-        Use this as a small checklist you can paste into your plugin repo README or a `TESTING.md` file.
+## How to do unit testing of a WordPress plugin — Step by step 
 
-## Prerequisites
+### Prerequisites
         * PHP (version compatible with your PHPUnit version). | wp unit test does not supports latest php unit . 
         * Composer.
         * MySQL (or MariaDB) for the test DB.
