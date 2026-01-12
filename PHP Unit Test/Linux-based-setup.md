@@ -4,7 +4,7 @@
 
 
 --------------------
-## Details 
+# install php , mysql inside wsl
 
 ✅ Correct this first (very important)
 ### 1️⃣ Move to Linux home directory
