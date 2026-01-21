@@ -101,10 +101,13 @@ class OptionsDemo_Settings_Page {
 					),
 				);
 				foreach ($fields as $field) {
-					add_settings_field($field['id'], $field['label'], array(
-						$this,
-						'optionsdemo_field_callback'
-					), 'optionsdemo', $field['section'], $field);
+					add_settings_field(
+						$field['id'],
+						$field['label'],
+						array($this,'optionsdemo_field_callback'),
+						'optionsdemo',
+						$field['section'],
+						$field);
 					register_setting('optionsdemo', $field['id']);
 				}
 			}
