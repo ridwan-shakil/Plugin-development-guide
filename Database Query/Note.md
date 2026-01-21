@@ -52,6 +52,7 @@ Anything stored in `wp_posts` can be queried using `WP_Query`.
 - **Recommended:** use `WC_Order_Query` in production
 
 **Why prefer `WC_Order_Query`?**
+- WooCommerce is moving orders from wp_posts to custom tables (HPOS).
 - Handles order statuses correctly
 - Optimized for large datasets
 - Safer against WooCommerce internal changes
