@@ -1,3 +1,26 @@
+
+## Quick Decision Table
+
+| Data Type | Recommended Tool |
+|---------|------------------|
+| Orders | `WC_Order_Query` |
+| Products | `WC_Product_Query` |
+| Customers | `WC_Customer_Query` |
+| Coupons | `WC_Coupon_Query` |
+| Order items | Order object methods |
+| Reports / analytics | `$wpdb` |
+
+---
+
+## Final Memory Hook
+
+> **WooCommerce data → WC APIs first**  
+> **`$wpdb` → last resort only**
+
+---
+
+
+
 # WooCommerce Query APIs – Reference Notes
 
 Central reference for querying WooCommerce data **correctly, safely, and future-proof**, especially with HPOS support.
@@ -117,24 +140,6 @@ Use `$wpdb` **only if all conditions are met**:
 
 ---
 
-## Quick Decision Table
 
-| Data Type | Recommended Tool |
-|---------|------------------|
-| Orders | `WC_Order_Query` |
-| Products | `WC_Product_Query` |
-| Customers | `WC_Customer_Query` |
-| Coupons | `WC_Coupon_Query` |
-| Order items | Order object methods |
-| Reports / analytics | `$wpdb` |
-
----
-
-## Final Memory Hook
-
-> **WooCommerce data → WC APIs first**  
-> **`$wpdb` → last resort only**
-
----
 
 _Last updated: keep revising as WooCommerce evolves._
