@@ -157,6 +157,9 @@ class My_REST_Posts_Controller {
 	 * @param WP_REST_Request $request Current request.
 	 */
 	public function get_item_schema( $request ) {
+			if ( $this->schema ) {
+			return $this->schema;
+			}
 		$schema = array(
 			// This tells the spec of JSON Schema we are using which is draft 4.
 			'$schema'              => 'http://json-schema.org/draft-04/schema#',
@@ -178,7 +181,8 @@ class My_REST_Posts_Controller {
 			),
 		);
 
-		return $schema;
+		$this->schema = $schema;
+		return $this->schema;
 	}
 
 	// Sets up the proper HTTP status code for authorization.
