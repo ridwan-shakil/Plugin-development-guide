@@ -124,3 +124,13 @@ Same data source, different contracts.
 * `show_in_rest` is **mandatory** for modern CPTs
 * Custom REST endpoints are **mandatory** for clean public APIs
 * They are **complementary**, not alternatives
+
+## rest_controller_class = custom_controllr_class (for internal api)
+    show_in_rest = registers internal CPT REST endpoints
+    rest_controller_class = controls how those endpoints behave
+    You do not register endpoints again
+    This is NOT a replacement for custom APIs
+    
+## Reality check:
+### 80–90% of plugins never need a custom rest_controller_class.
+t’s an advanced internal tool, not a default choice.
