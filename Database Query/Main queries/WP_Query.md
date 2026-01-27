@@ -160,3 +160,4 @@ add_action( 'pre_get_posts', function( $query ) {
 * Main query change? → `pre_get_posts`
 * Users? → `WP_User_Query`
 * Woo orders? → WC APIs
+* Custom Table? → $wpdb 
