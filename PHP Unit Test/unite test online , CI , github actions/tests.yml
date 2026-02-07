@@ -1,0 +1,65 @@
+name: PHPUnit
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+          extensions: mbstring, mysqli
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y subversion mysql-client
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Cache WordPress test suite
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/wordpress
+            /tmp/wordpress-tests-lib
+          key: wp-tests-6.9.1
+
+      - name: Install WordPress test suite
+        run: |
+          yes | bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 6.9.1
+
+      - name: Run PHPUnit
+        run: php vendor/bin/phpunit
