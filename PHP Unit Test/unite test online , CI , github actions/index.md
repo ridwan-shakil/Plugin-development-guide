@@ -4,6 +4,7 @@
     1. Copy .github/workflows/phpunit.yml
     2. Copy composer.json test deps
     3. copy phpunit.xml.dist
+    4. extra (create a .gitignore file inside /vendor)
 
 ### Run on :
       composer install
@@ -15,7 +16,9 @@
       bash bin/install-wp-tests.sh wordpress_test root '' localhost latest
 
 
-
+### small fixes
+        fix sample-test file name to SampleTest.php 
+        fix the (extends \WP_UnitTestCase)
 
 --------------------------
 ## in Details
