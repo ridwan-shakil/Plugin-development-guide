@@ -9,7 +9,7 @@
 ### Run on :
       composer install
 ### Run on : root location: sitebylocal/app/public  OR ( localwp > site shell ) 
-      wp scaffold plugin-tests {your-plugin-slug}
+      wp scaffold plugin-tests {your-plugin-slug}     (wp scaffold plugin sample-plugin  = this command is for new plugins, both works)
 
 ### Run on : Power shell  
       cd wp-content/plugins/{your-Plugin-slug)
