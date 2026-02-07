@@ -1,100 +1,132 @@
-# Running WordPress Plugin Unit Tests via GitHub Actions (CI)
+# WordPress Plugin – CI / Online Unit Testing Setup (Step-by-Step)
 
-This note explains the **minimal steps** to run WordPress plugin unit tests automatically on every push / PR using **GitHub Actions**.
+## For a new plugin:
+    1. Copy .github/workflows/phpunit.yml
+    2. Copy composer.json test deps
+    3. copy phpunit.xml.dist
 
----
+### Run:
+      wp scaffold plugin-tests new-plugin-slug
+      composer install
+      bash bin/install-wp-tests.sh wordpress_test root '' localhost latest
 
-## 1. Why use CI for WP unit tests
 
-- No need to configure WordPress test environment locally
-- Tests run in a clean environment every time
-- Catches errors early before merging
-- Matches real-world, professional workflows
 
-> WordPress “unit tests” are closer to **integration tests**, so CI is ideal.
 
----
-
-## 2. Prerequisites in the plugin repo
-
-Your plugin should already have:
-
-- A valid plugin main file
-- `tests/` directory
-- `tests/bootstrap.php`
-- At least one test class extending `WP_UnitTestCase`
+--------------------------
+## in Details
+This guide assumes you already have:
+- `composer.json`
 - `phpunit.xml.dist`
+- GitHub Actions `.yml` file
+
+This document only covers **what to do next** to scaffold, prepare, and run WordPress unit tests locally and in CI.
 
 ---
 
-## 3. Create `composer.json` (dev-only)
+## 1. Install Composer dependencies
 
-Purpose:
-- Install PHPUnit and WP-compatible testing tools
-- Lock versions for CI stability
+From the plugin root:
 
-Key points:
-- Use `require-dev`
-- Pin PHPUnit to a WP-safe version (e.g. 9.x)
-- Add a PHP platform version to avoid CI mismatches
-- Commit both `composer.json` and `composer.lock`
+```bash
+composer install
+```
 
----
+This installs:
 
-## 4. Install WordPress test installer script
+PHPUnit
 
-WordPress provides an official script to install:
-- WordPress core
-- WP test library
-- Test database
+WordPress test dependencies (if defined in composer.json)
 
-Steps:
-1. Create a `bin/` directory
-2. Download `install-wp-tests.sh` from WordPress core repo
-3. Make it executable
-4. Commit it
+2. Scaffold WordPress PHPUnit test environment (automatic)
 
-This script will be reused by CI.
+Use WP-CLI to scaffold the testing structure.
 
----
+wp scaffold plugin-tests your-plugin-slug
 
-## 5. Create GitHub Actions workflow (`.yml`)
 
-Purpose:
-- Define when tests run (push / PR)
-- Set up PHP
-- Start MySQL
-- Install WordPress test suite
-- Run PHPUnit
+This creates:
 
-Key ideas (not full config):
-- Use `ubuntu-latest`
-- Use MySQL service
-- Install `svn` (required by WP test installer)
-- Cache:
-  - `vendor/` (Composer)
-  - `/tmp/wordpress` and `/tmp/wordpress-tests-lib`
-- Run installer **non-interactively** using `yes |`
-- Run PHPUnit via `php vendor/bin/phpunit`
+tests/ directory
 
----
+tests/bootstrap.php
 
-## 6. Important CI-specific rules
+tests/test-sample.php
 
-- Never rely on executable permissions → always run `php vendor/bin/phpunit`
-- Avoid `latest` WordPress in CI → pin a version for stability
-- Ignore MySQL warnings in logs (they are normal in CI)
-- Only care about:
-  - Exit code
-  - PHPUnit result (`OK`, `FAILURES`)
+bin/install-wp-tests.sh
 
----
+Updates phpunit.xml.dist if missing
 
-## 7. Test discovery rules (very important)
+⚠️ Run this once per plugin.
 
-For PHPUnit to find tests:
-- Test files must end with `Test.php`
-- Test classes must end with `Test`
-- Tests must live inside the directory defined in `phpunit.xml.dist`
+3. Install WordPress test suite locally
 
-Example:
+Run the installer script:
+
+bash bin/install-wp-tests.sh wordpress_test root '' localhost latest
+
+
+This will:
+
+Download WordPress core into /tmp/wordpress
+
+Download test library into /tmp/wordpress-tests-lib
+
+Create a test database
+
+4. Create a test file using correct naming
+
+Inside tests/:
+
+touch tests/test-example.php
+
+
+File name must start with test-, otherwise PHPUnit will skip it.
+
+Example structure:
+
+class Example_Test extends WP_UnitTestCase {
+    public function test_something_works() {
+        $this->assertTrue( true );
+    }
+}
+
+5. Run unit tests locally
+vendor/bin/phpunit
+
+
+If configured correctly, you should see:
+
+WordPress loading
+
+Database created
+
+Tests executed
+
+6. Push code to GitHub
+git add .
+git commit -m "Add WordPress unit tests"
+git push
+
+
+GitHub Actions will:
+
+Spin up PHP + MySQL
+
+Install WP test suite
+
+Run PHPUnit automatically
+
+7. Debugging tips (important)
+
+If you see “No tests executed”
+
+File name must be test-*.php
+
+Class name must extend WP_UnitTestCase
+
+If CI is slow
+
+Cache /tmp/wordpress and /tmp/wordpress-tests-lib
+
+Cache vendor/
