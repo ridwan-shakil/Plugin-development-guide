@@ -5,9 +5,13 @@
     2. Copy composer.json test deps
     3. copy phpunit.xml.dist
 
-### Run:
-      wp scaffold plugin-tests new-plugin-slug
+### Run on :
       composer install
+### Run on : root location: sitebylocal/app/public  OR ( localwp > site shell ) 
+      wp scaffold plugin-tests {your-plugin-slug}
+
+### Run on : Power shell  
+      cd wp-content/plugins/{your-Plugin-slug)
       bash bin/install-wp-tests.sh wordpress_test root '' localhost latest
 
 
