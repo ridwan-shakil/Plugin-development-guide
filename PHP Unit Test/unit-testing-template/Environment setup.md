@@ -13,3 +13,14 @@
     docker-compose up --build -d        ( first time )  /  rom next time use :     docker-compose up -d
     docker-compose run --rm wordpress vendor/bin/phpunit
 Creates a new container each time → runs tests → deletes the container (--rm)
+
+
+
+
+## “Inside the container” means
+You need to run commands inside the PHP environment that Docker provides, not on your Windows host.
+
+    docker-compose run --rm wordpress bash
+    
+    composer install
+    vendor/bin/phpunit
