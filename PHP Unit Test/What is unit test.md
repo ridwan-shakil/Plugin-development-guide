@@ -1,4 +1,3 @@
-<?php
 # PHPUnit & WordPress Plugin Testing — Quick Revision Notes
 
 ---
@@ -35,25 +34,24 @@ class CalculatorTest extends TestCase {
 }
 ```
 
-##========== What is `WP_UnitTestCase` and why WordPress needs it ===============
+##  What is `WP_UnitTestCase` and why WordPress needs it 
 
-* WordPress plugins usually call WordPress core functions (`get_option()`, `wp_insert_post()`, etc.). Plain `TestCase` does **not** boot WordPress.
-* `WP_UnitTestCase` is part of the WordPress test framework. It extends PHPUnit’s `TestCase` and:
+### * WordPress plugins usually call WordPress core functions (`get_option()`, `wp_insert_post()`, etc.). Plain `TestCase` does **not** boot WordPress.
+### * `WP_UnitTestCase` is part of the WordPress test framework. It extends PHPUnit’s `TestCase` and:
+      * Boots a lightweight WordPress environment for tests.
+      * Resets the database between tests so tests are isolated.
+      * Provides factories (`$this->factory->post`, `->user`, `->term`, etc.) to create test fixtures quickly.
+      * Loads plugin code via the test bootstrap so WP functions are available.
 
-  * Boots a lightweight WordPress environment for tests.
-  * Resets the database between tests so tests are isolated.
-  * Provides factories (`$this->factory->post`, `->user`, `->term`, etc.) to create test fixtures quickly.
-  * Loads plugin code via the test bootstrap so WP functions are available.
+## **Why use them?**
 
-**Why use them?**
+    * To test plugin logic that depends on WordPress.
+    * To make safe refactors (tests fail if you break something).
+    * To automate checks (CI) before publishing to GitHub, WordPress.org, or CodeCanyon.
 
-* To test plugin logic that depends on WordPress.
-* To make safe refactors (tests fail if you break something).
-* To automate checks (CI) before publishing to GitHub, WordPress.org, or CodeCanyon.
-
-**Mnemonic**: 
-  *PHPUnit = engine; 
-  WP_UnitTestCase = adapter that boots WordPress.*
+## **Mnemonic**: 
+      *PHPUnit = engine; 
+      WP_UnitTestCase = adapter that boots WordPress.*
 
 ---
 
