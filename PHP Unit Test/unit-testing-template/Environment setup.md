@@ -10,6 +10,6 @@
     Add relevant libraries for your tests to the composer.json file.
 
 ## run this : 
-    docker-compose up --build -d
+    docker-compose up --build -d        ( first time )  /  rom next time use :     docker-compose up -d
     docker-compose run --rm wordpress vendor/bin/phpunit
 Creates a new container each time → runs tests → deletes the container (--rm)
