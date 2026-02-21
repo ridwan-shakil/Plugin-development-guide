@@ -8,13 +8,13 @@
       * Test if all the fields are saving data properly or not 
       *
 
-## (Way 2)  Dirrect form creat & handle manually
+## (Way 2)  Dirrect form creat & handle manually (see way 2 folder for details)
 
 
 
----
+---------------------------
 
-# Settings api work flow 
+# (Way 1) Settings api work flow 
     register_setting()  -->  WP registers option + sanitize rules
     add_settings_field() -->  WP registers UI field definitions
     ↓
