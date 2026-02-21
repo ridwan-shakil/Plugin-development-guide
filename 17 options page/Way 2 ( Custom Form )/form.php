@@ -14,7 +14,7 @@
 
 
 
-	<input type="hidden" name="action" value="optionsdemo_admin_page">
+	<input type="hidden" name="action" value="optionsdemo_admin_page">  <!-- This action is for saving data, if saves directly it will ask everytime (do you want to save this form again) -->
 	<!-- <input type="hidden" name="action" value="optionsdemo_color"> -->
 	<?php
 	submit_button('Save');
