@@ -1,4 +1,4 @@
-📘 WordPress Cron Jobs — Developer Notes
+## 📘 WordPress Cron Jobs — Developer Notes
 🔹 What is WP-Cron?
 •	WP-Cron is WordPress’s task scheduling system.
 •	It lets you schedule tasks to run at specific times or intervals.
@@ -10,14 +10,14 @@ o	Run backups every night
 •	It only runs when someone visits the site.
 •	For precise timing, server cron can be used to trigger WP-Cron manually.
 ________________________________________
-🔹 Why Use WP-Cron?
+## 🔹 Why Use WP-Cron?
 Without cron, you’d need to run tasks manually. Cron makes plugins automated and reliable:
 •	Backup plugins → automatic backups
 •	WooCommerce → renew subscriptions, clear carts
 •	SEO plugins → refresh sitemaps
 •	Security plugins → scan for malware
 ________________________________________
-🔹 Scheduling vs Executing
+## 🔹 Scheduling vs Executing
 •	Scheduling: Telling WordPress when a task should run. (e.g., “at 10 AM daily”)
 •	Executing: The actual task running at that time.
 Example:
@@ -30,7 +30,7 @@ function my_cron_task() {
     error_log( 'Cron executed at: ' . current_time( 'mysql' ) );
 }
 ________________________________________
-🔹 Types of Cron Events
+## 🔹 Types of Cron Events
 1. One-Time Cron (Single Event)
 Runs once in the future, then disappears.
 // Schedule to run 1 hour from now
@@ -55,13 +55,13 @@ function my_recurring_task() {
 }
 👉 Good for maintenance tasks (e.g., clean logs, backups, reports).
 ________________________________________
-🔹 Built-in Intervals
+## 🔹 Built-in Intervals
 WordPress comes with:
 •	hourly
 •	twicedaily
 •	daily
 ________________________________________
-🔹 Custom Intervals
+## 🔹 Custom Intervals
 You can add your own schedules:
 // Add custom schedule (every 5 minutes)
 add_filter( 'cron_schedules', 'my_custom_cron_schedule' );
@@ -76,7 +76,7 @@ function my_custom_cron_schedule( $schedules ) {
 // Use it when scheduling
 wp_schedule_event( time(), 'five_minutes', 'my_custom_hook' );
 ________________________________________
-🔹 Activation & Deactivation
+## 🔹 Activation & Deactivation
 Always schedule on activation and clear on deactivation:
 // Activation
 register_activation_hook( __FILE__, 'my_plugin_activate' );
@@ -95,21 +95,21 @@ function my_plugin_deactivate() {
     }
 }
 ________________________________________
-🔹 Debugging Cron Jobs
+## 🔹 Debugging Cron Jobs
 1. Logging
-error_log( 'Cron ran at: ' . current_time( 'mysql' ) );
-Check wp-content/debug.log.
+    error_log( 'Cron ran at: ' . current_time( 'mysql' ) );
+    Check wp-content/debug.log.
 2. WP Crontrol Plugin
-•	Tools → Cron Events
-•	See all jobs, run them manually, debug.
+    •	Tools → Cron Events
+    •	See all jobs, run them manually, debug.
 3. WP-CLI
-wp cron event list
-wp cron event run my_task_hook
+    wp cron event list
+    wp cron event run my_task_hook
 4. Server Cron (for reliability)
-Add in server (cPanel/SSH):
-*/5 * * * * wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
+    Add in server (cPanel/SSH):
+    */5 * * * * wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ________________________________________
-🔹 Summary
+## 🔹 Summary
 •	WP-Cron = built-in scheduler for WordPress plugins.
 •	One-time cron → runs once (good for delays).
 •	Recurring cron → runs repeatedly (good for maintenance).
