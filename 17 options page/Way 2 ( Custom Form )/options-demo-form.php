@@ -2,7 +2,7 @@
 class OptionsDemoTwo {
 	public function __construct() {
 		add_action('admin_menu', array($this, 'optionsdemo_create_admin_page'));
-		add_action('admin_post_optionsdemo_admin_page', array($this, 'optionsdemo_save_form'));
+		add_action('admin_post_optionsdemo_admin_page', array($this, 'optionsdemo_save_form')); //action form hidden form field
 	}
 
 	public function optionsdemo_create_admin_page() {
