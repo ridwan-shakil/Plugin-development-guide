@@ -11,7 +11,7 @@ class OptionsDemoTwo {
 		$capability = 'manage_options';
 		$slug       = 'optionsdemopage';
 		$callback   = array($this, 'optionsdemo_page_content');
-		// add_options_page($page_title, $menu_title, $capability, $slug, $callback);
+		// add_options_page($page_title, $menu_title, $capability, $slug, $callback);  // used if you want to create this page as a sub settings page
 		add_menu_page($page_title, $menu_title, $capability, $slug, $callback);
 	}
 
@@ -31,7 +31,7 @@ class OptionsDemoTwo {
 		}
 
 		wp_redirect('admin.php?page=optionsdemopage');
-		// wp_redirect(admin_url('options-general.php?page=optionsdemopage'));
+		// wp_redirect(admin_url('options-general.php?page=optionsdemopage')); //if used options page
 	}
 }
 
