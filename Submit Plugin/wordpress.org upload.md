@@ -2,10 +2,11 @@
 
 ## Standards
   1. plugin name must be unique
-  2. correct readme.txt file
-  3. generate .pot file by this command :  wp i18n make-pot .       ( inside powershell not git bash ) 
-  4. translation function is not required
-  5. Create 2 banner image & 1 icon
+  2. Prefixing: prefix everything such as constent,namespacing, cpt, menu pages slug, ajax,Image Size Names,Shortcodes,Text Domain,Script and Style Handles,Action and Filter Hooks ,id,class,db table, transients, options key
+  3. correct readme.txt file
+  4. generate .pot file by this command :  wp i18n make-pot .       ( inside powershell not git bash ) 
+  5. translation function is not required
+  6. Create 2 banner image & 1 icon
 
 
 ## Check coding standards : 
