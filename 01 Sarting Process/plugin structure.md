@@ -12,10 +12,14 @@
         frontend
         
 ## file naming styles :
-1. AssetEnqueuer.php  = psr4 standard (Recommended)
-2. class-asset-enqueuer.php   = old wp style, reviewers doesn't care about this formatting
-    
+    1. AssetEnqueuer.php  = psr4 standard (Recommended)
+    2. class-asset-enqueuer.php   = old wp style, reviewers doesn't care about this formatting
+        
+    inside phpcs.xml file perst this code to aboid this filename error:
 
+      <rule ref="WordPress">
+            <exclude name="WordPress.Files.FileName"/>
+      </rule>
 
 ## plugin stracture
     my-plugin.php
