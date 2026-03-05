@@ -3,8 +3,7 @@
 ## Plugin Identity
 ☐ Plugin name is unique
 ☐ Plugin slug is unique and lowercase-hyphen format
-☐ Plugin folder name = plugin slug
-☐ Text domain = plugin slug
+☐ plugin slug = Text domain = Plugin folder name
 ☐ Plugin header fields complete (Version, Requires PHP, Tested up to, etc.)
 ☐ Plugin does not use trademarked or misleading names
 
