@@ -11,6 +11,11 @@
         admin
         frontend
         
+## file naming styles :
+1. AssetEnqueuer.php  = psr4 standard (Recommended)
+2. class-asset-enqueuer.php   = old wp style, reviewers doesn't care about this formatting
+    
+
 
 ## plugin stracture
     my-plugin.php
