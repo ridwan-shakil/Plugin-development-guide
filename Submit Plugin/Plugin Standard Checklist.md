@@ -1,6 +1,6 @@
-✅ WordPress Plugin Review — One-Page Checklist
-Plugin Identity
+# ✅ WordPress Plugin Review — One-Page Checklist
 
+## Plugin Identity
 ☐ Plugin name is unique
 ☐ Plugin slug is unique and lowercase-hyphen format
 ☐ Plugin folder name = plugin slug
