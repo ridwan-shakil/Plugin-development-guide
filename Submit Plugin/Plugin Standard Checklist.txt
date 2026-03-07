@@ -4,11 +4,12 @@
 ☐ Plugin name is unique
 ☐ Plugin slug is unique and lowercase-hyphen format
 ☐ plugin slug = Text domain = Plugin folder name
+☐ Prefix the NameSpacing too as it's must be unique but not required to use the same prefixing
 ☐ Plugin header fields complete (Version, Requires PHP, Tested up to, etc.)
 ☐ Plugin does not use trademarked or misleading names
 
 ## Prefixing & Collision Safety
-☐ PHP namespace used
+☐ PHP unique namespace used
 ☐ All functions/classes/constants prefixed
 ☐ Option keys prefixed
 ☐ Transients prefixed
