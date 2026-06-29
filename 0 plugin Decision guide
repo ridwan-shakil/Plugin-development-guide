@@ -1,0 +1,274 @@
+WordPress Project Decision Guide
+
+«A practical guide to decide whether to use ACF, a Custom Plugin, or ACF + Custom Plugin before starting any WordPress project.»
+
+---
+
+Step 1: Understand the Project
+
+Before writing any code, answer these questions:
+
+- What problem is the project solving?
+- Is it mostly content management?
+- Is it mostly business logic?
+- Does it require both?
+- Who will manage the data?
+- Will the project need custom workflows?
+- Is performance a major concern?
+- Will the solution be reusable on multiple websites?
+
+---
+
+Decision Tree
+
+                   New Project
+                        │
+                        ▼
+        Is it mainly storing content?
+                  │
+          Yes ────┴──── No
+          │              │
+          ▼              ▼
+   Is ACF capable?   Business Logic?
+          │              │
+      Yes │              │ Yes
+          ▼              ▼
+     Use ACF        Build Plugin
+          │
+          ▼
+Need custom functionality?
+          │
+     Yes ─┴─ No
+      │
+      ▼
+Use ACF + Plugin
+
+---
+
+Option 1: Use Only ACF
+
+Choose this when the project only needs structured content management.
+
+Best For
+
+- Hero Sections
+- FAQs
+- Testimonials
+- Team Members
+- Pricing Tables
+- Product Specifications
+- Company Information
+- Landing Pages
+- Galleries
+- Contact Information
+
+Characteristics
+
+- Mostly content
+- Little or no business logic
+- Editors manage everything
+- Standard frontend display
+
+Advantages
+
+- Fast development
+- Easy for clients
+- Little code
+- Easy maintenance
+
+---
+
+Option 2: Build a Custom Plugin
+
+Choose this when the project is mainly functionality.
+
+Best For
+
+- WooCommerce Extensions
+- Payment Gateways
+- License Managers
+- Booking Systems
+- Membership Systems
+- CRM
+- Inventory Management
+- REST APIs
+- Automation
+- Security Features
+
+Characteristics
+
+- Heavy business logic
+- Custom workflows
+- Integrations
+- AJAX
+- Scheduled Tasks
+- Custom Database Tables
+- Complex Validation
+
+Advantages
+
+- Full control
+- High performance
+- No dependency on ACF
+- Easier to distribute as a standalone plugin
+
+---
+
+Option 3: Use ACF + Custom Plugin
+
+This is the most common architecture for professional WordPress projects.
+
+ACF Handles
+
+- Admin UI
+- Data Entry
+- Validation
+- Repeaters
+- Flexible Content
+- Relationships
+- Options Pages
+
+Plugin Handles
+
+- Business Logic
+- Frontend Rendering
+- WooCommerce Integration
+- API Calls
+- Search & Filtering
+- Comparison
+- Automation
+- Custom Shortcodes
+- Gutenberg Blocks
+- Widgets
+
+Best For
+
+- Mobile Database
+- Real Estate
+- Course Websites
+- Directories
+- Product Catalogs
+- Review Websites
+- Job Boards
+
+---
+
+When NOT to Use ACF
+
+Avoid ACF if the project requires:
+
+- Highly custom admin dashboards
+- Custom database tables
+- Thousands of records with performance-critical queries
+- Complex workflows
+- Heavy AJAX interfaces
+- Drag-and-drop builders
+- Standalone plugin distribution without dependencies
+
+In these cases, build the admin UI yourself inside the plugin.
+
+---
+
+Quick Decision Checklist
+
+Choose ACF if:
+
+- [ ] The project mainly stores content.
+- [ ] Standard field types are sufficient.
+- [ ] Editors will manage the data.
+- [ ] No complex workflows exist.
+
+---
+
+Choose Plugin if:
+
+- [ ] The project focuses on functionality.
+- [ ] Complex business logic is required.
+- [ ] Custom database tables are needed.
+- [ ] Performance is critical.
+- [ ] The plugin should have no dependency on ACF.
+
+---
+
+Choose ACF + Plugin if:
+
+- [ ] The project needs structured content.
+- [ ] It also requires custom business logic.
+- [ ] Editors should have an easy admin interface.
+- [ ] Frontend output is highly customized.
+- [ ] Integrations or automation are required.
+
+---
+
+Real-World Examples
+
+ACF Only
+
+- Company Website
+- Portfolio
+- Restaurant Website
+- Agency Website
+- Blog Enhancements
+
+---
+
+Plugin Only
+
+- License Manager
+- Booking Engine
+- Order Restriction Plugin
+- Payment Gateway
+- Membership System
+- CRM
+
+---
+
+ACF + Plugin
+
+- Mobile Specifications Website
+- Real Estate Portal
+- Job Portal
+- LMS
+- Product Comparison Website
+- Directory Website
+
+---
+
+Golden Rule
+
+Ask yourself one question before starting:
+
+«Can ACF comfortably manage the data entry?»
+
+- Yes → Use ACF + Plugin if business logic is needed.
+- Yes → Use Only ACF if no business logic is needed.
+- No → Build the entire solution as a Custom Plugin.
+
+---
+
+Architecture Principle
+
+ACF
+│
+├── Data Structure
+├── Admin UI
+├── Content Management
+└── Validation
+
+Custom Plugin
+│
+├── Business Logic
+├── Automation
+├── Frontend Rendering
+├── Integrations
+├── APIs
+├── Performance
+└── Custom Features
+
+Final Principle
+
+«Never build a custom admin interface if ACF already solves the content management problem.
+
+Never force ACF to solve problems that belong to application logic.
+
+Use each tool for what it does best.»
